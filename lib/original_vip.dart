@@ -35,12 +35,12 @@ class OriginalVIP extends StatelessWidget {
                   }
                   if (snapshot.hasData && snapshot.data != null) {
                     user = User(
-                      name: snapshot.data["name"],
-                      id: snapshot.data["id"],
-                      phone: snapshot.data["phone"],
-                      role: snapshot.data["role"],
-                      orderID: snapshot.data["orderID"],
-                      commission: snapshot.data["commission"],
+                      snapshot.data["id"],
+                      snapshot.data["name"],
+                      snapshot.data["commission"],
+                      snapshot.data["orderID"],
+                      snapshot.data["phone"],
+                       snapshot.data["role"],
                     );
                   }
                   return  Directionality(

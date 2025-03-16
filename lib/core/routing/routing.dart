@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/feature/authentication/presentation/login_screen.dart';
 
 import '../../feature/authentication/view_model/auth_cubit.dart';
-import '../../feature/home/presentation/home.dart';
+import '../../feature/home/presentation/home_screen.dart';
 import '../di/sl.dart';
 
 class Routes {

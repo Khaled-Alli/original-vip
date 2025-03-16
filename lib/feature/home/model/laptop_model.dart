@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'laptop_model.g.dart';
 @JsonSerializable()
 class Laptop{
-  int id;
+  String id;
   String name;
   String brand;
   String processor;
@@ -12,29 +12,33 @@ class Laptop{
   String hard;
   String quantity;
   String screenSize;
+  String notes;
   bool touch;
+  bool inAED;
   bool camera;
   bool keyboardBackLight;
   bool acceptAdditionalHard;
   bool visibility;
   int price;
 
-  Laptop({
-     required this.id,
-     required this.name,
-     required this.brand,
-     required this.processor,
-     required this.ram,
-     required this.viga,
-     required this.hard,
-     required this.quantity,
-     required this.screenSize,
-     required this.touch,
-     required this.keyboardBackLight,
-     required this.acceptAdditionalHard,
-     required this.camera,
-     required this.visibility,
-     required this.price,});
+  Laptop(
+      this.id,
+      this.name,
+      this.brand,
+      this.processor,
+      this.ram,
+      this.viga,
+      this.hard,
+      this.quantity,
+      this.screenSize,
+      this.touch,
+      this.inAED,
+      this.keyboardBackLight,
+      this.acceptAdditionalHard,
+      this.camera,
+      this.visibility,
+      this.notes,
+      this.price,);
 
   factory Laptop.fromJson(Map<String,dynamic> json)=>_$LaptopFromJson(json);
 

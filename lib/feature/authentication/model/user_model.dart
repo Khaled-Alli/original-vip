@@ -10,14 +10,14 @@ class User {
   int commission;
   String role;
 
-  User({
-    required this.id,
-    required this.name,
-    required this.commission,
-    required this.orderID,
-    required this.phone,
-    required this.role,
-  });
+  User(
+     this.id,
+     this.name,
+     this.commission,
+     this.orderID,
+     this.phone,
+     this.role,
+  );
   factory User.fromJson(Map<String,dynamic> json)=>_$UserFromJson(json);
 
   Map<String,dynamic> toJson()=>_$UserToJson(this);

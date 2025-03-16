@@ -4,10 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
+import 'package:original_vip/feature/home/model/laptop_model.dart';
 import 'package:original_vip/feature/home/presentation/widgets/drawer_item.dart';
+import 'package:original_vip/feature/home/presentation/widgets/laptop_item.dart';
 import 'package:original_vip/feature/home/presentation/widgets/my_appbar.dart';
 import 'package:original_vip/feature/home/presentation/widgets/my_drawer.dart';
 import 'package:original_vip/feature/home/presentation/widgets/top_tab_bar.dart';
+
+import '../../../core/helpers/extentions/extentions.dart';
+import '../../../demo-data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,28 +54,46 @@ class HomeScreen extends StatelessWidget {
                   length: 3,
                   child: Column(
                     children: [
-                    const TopTabBar(),
+                      const TopTabBar(),
                       SizedBox(
                         height: 540.h,
-                        child: const TabBarView(children: [
-                          Center(child: Text("كل الابتوبات")),
-                          Center(child: Text("فى مصر")),
-                          Center(child: Text("فى الإمارات")),
+                        child: TabBarView(children: [
+                          ListView.separated(
+                            itemBuilder: (context, index) =>
+                                LaptopItem(laptop: demo_laptops[index],),
+                            separatorBuilder: (context, index) => verticalSpace(10),
+                            itemCount: demo_laptops.length,
+                          ),
+                          ListView.separated(
+                            itemBuilder: (context, index) =>
+                                LaptopItem(laptop: demo_laptops.where((item)=>!item.inAED).toList()[index],),
+                            separatorBuilder: (context, index) => verticalSpace(10),
+                            itemCount:  demo_laptops.where((item)=>!item.inAED).toList().length,
+                          ),
+                          ListView.separated(
+                            itemBuilder: (context, index) =>
+                                LaptopItem(laptop: demo_laptops.where((item)=>item.inAED).toList()[index],),
+                            separatorBuilder: (context, index) => verticalSpace(10),
+                            itemCount: demo_laptops.where((item)=>item.inAED).toList().length,
+                          ),
                         ]),
                       ),
                     ],
                   ),
                 ),
               ],
-
             ),
           )),
           Positioned(
             bottom: 50.h, // Adjust position
             right: 10.w, // Adjust position
-            child:  FloatingActionButton(onPressed: () {},
+            child: FloatingActionButton(
+              onPressed: () {},
               backgroundColor: AppColors.whiteColor,
-              child: const Icon(Icons.shopping_cart,color: AppColors.mainColor,),
+              child: const Icon(
+                Icons.shopping_cart,
+                color: AppColors.mainColor,
+              ),
             ),
           ),
         ],

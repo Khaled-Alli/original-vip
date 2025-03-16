@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 extension Navigation on BuildContext {
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
@@ -18,6 +19,15 @@ extension Navigation on BuildContext {
 
   void pop() => Navigator.of(this).pop();
 }
+
 extension StringExtension on String? {
   bool isNullOrEmpty() => this == null || this == "";
 }
+
+SizedBox verticalSpace(double height) => SizedBox(
+  height: height.h,
+);
+
+SizedBox horizontalSpace(double width) => SizedBox(
+  width: width.w,
+);

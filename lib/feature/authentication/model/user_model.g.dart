@@ -7,13 +7,12 @@ part of 'user_model.dart';
 // **************************************************************************
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      commission: (json['commission'] as num).toInt(),
-      orderID:
-          (json['orderID'] as List<dynamic>).map((e) => e as String).toList(),
-      phone: json['phone'] as String,
-      role: json['role'] as String,
+      (json['id'] as num).toInt(),
+      json['name'] as String,
+      (json['commission'] as num).toInt(),
+      (json['orderID'] as List<dynamic>).map((e) => e as String).toList(),
+      json['phone'] as String,
+      json['role'] as String,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{

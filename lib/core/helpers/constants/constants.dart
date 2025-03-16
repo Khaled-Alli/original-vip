@@ -6,6 +6,7 @@ class AppConstants{
 
 
   static const appLogoImagePath="assets/images/o-bgremoved.png";
+  static const appIconImagePath="assets/images/app-icon.png";
   static const noInternetImagePath="assets/images/no-connection.png";
 
 
