@@ -14,9 +14,12 @@ class MyDrawer extends StatelessWidget {
     return  ListView(
         // padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            margin: EdgeInsets.all(10.w),
-            child:Image.asset(AppConstants.appLogoImagePath),
+          GestureDetector(
+            child: DrawerHeader(
+              margin: EdgeInsets.all(10.w),
+              child:Image.asset(AppConstants.userImagePath),
+            ),
+            onTap: (){},
           ),
           DrawerItem(text: "المكان ومواعيد العمل",onTap:(){} ,),
           DrawerItem(text: "تفاصيل الشحن",onTap: (){},),

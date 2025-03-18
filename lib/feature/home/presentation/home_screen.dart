@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
+import 'package:original_vip/core/routing/routing.dart';
 import 'package:original_vip/feature/home/model/laptop_model.dart';
 import 'package:original_vip/feature/home/presentation/widgets/drawer_item.dart';
 import 'package:original_vip/feature/home/presentation/widgets/laptop_item.dart';
@@ -60,7 +61,10 @@ class HomeScreen extends StatelessWidget {
                         child: TabBarView(children: [
                           ListView.separated(
                             itemBuilder: (context, index) =>
-                                LaptopItem(laptop: demo_laptops[index],),
+                                GestureDetector(child: LaptopItem(laptop: demo_laptops[index],),
+                                onTap: (){
+                                  context.pushNamed(Routes.laptopDetailsScreen,arguments: demo_laptops[index]);
+                                },),
                             separatorBuilder: (context, index) => verticalSpace(10),
                             itemCount: demo_laptops.length,
                           ),

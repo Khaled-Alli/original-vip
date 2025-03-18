@@ -2,15 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/feature/authentication/presentation/login_screen.dart';
+import 'package:original_vip/feature/home/presentation/laptop_details_screen.dart';
 
 import '../../feature/authentication/view_model/auth_cubit.dart';
+import '../../feature/home/model/laptop_model.dart';
 import '../../feature/home/presentation/home_screen.dart';
+import '../../feature/home/view_model/home_cubit.dart';
 import '../di/sl.dart';
 
 class Routes {
   static const homeScreen = '/home';
   static const loginScreen = '/login';
   static const registerScreen = '/register';
+  static const laptopDetailsScreen = '/laptopDetails';
   //static const home = '/home';
 }
 
@@ -31,8 +35,15 @@ class AppRouter {
         case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<AuthCubit>(),
+            create: (context) => getIt<HomeCubit>(),
             child: const HomeScreen(),
+          ),
+        );
+        case Routes.laptopDetailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<HomeCubit>(),
+            child:  LaptopDetailsScreen(arguments as Laptop),
           ),
         );
       default:

@@ -10,4 +10,10 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.mainColor,
   );
+  static TextStyle font25mainColorBold = TextStyle(
+    fontSize: 25.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.mainColor,
+  );
+
 }

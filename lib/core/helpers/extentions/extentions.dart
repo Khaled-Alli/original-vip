@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../colors/colors.dart';
 
 extension Navigation on BuildContext {
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
@@ -30,4 +33,9 @@ SizedBox verticalSpace(double height) => SizedBox(
 
 SizedBox horizontalSpace(double width) => SizedBox(
   width: width.w,
+);
+
+Widget devider() =>  Container(
+  padding: EdgeInsets.symmetric(vertical: 5.h),
+  child: Divider(color: AppColors.darktGrayColor,),
 );

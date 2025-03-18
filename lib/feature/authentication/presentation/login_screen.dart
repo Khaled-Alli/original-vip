@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                       AppTextFormField(
                         textFormController:
                             context.read<AuthCubit>().phoneController,
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.phone_android_outlined,
                           color: AppColors.whiteColor,
                         ),
@@ -77,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                       AppTextFormField(
                         textFormController:
                             context.read<AuthCubit>().passwordController,
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.remove_red_eye,
                           color: AppColors.whiteColor,
                         ),

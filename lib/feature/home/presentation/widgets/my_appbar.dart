@@ -14,11 +14,12 @@ class MyAppBar extends StatelessWidget {
     return Container(
         width: double.infinity,
         height: 60.h,
-        decoration: const BoxDecoration(
-          color: AppColors.lightBackgroundColor,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16), topRight: Radius.circular(16)),
-        ),
+     // color: AppColors.lightBackgroundColor,
+        // decoration: const BoxDecoration(
+        //   color: AppColors.lightBackgroundColor,
+        //   borderRadius: BorderRadius.only(
+        //       topLeft: Radius.circular(16), topRight: Radius.circular(16)),
+        // ),
         //padding: EdgeInsets.only(left: 10.w),
         // margin: EdgeInsets.all(10.h),
         child: Row(
