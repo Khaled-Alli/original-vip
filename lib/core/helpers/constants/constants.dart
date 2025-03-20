@@ -2,6 +2,9 @@ class AppConstants{
   static const APP_NAME="Original VIP";
 
 
+  static const cartItemBox="cartItemBox";
+
+
 
 
 

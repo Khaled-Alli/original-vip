@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +16,7 @@ class LaptopDetailsCheckbox extends StatelessWidget {
       width: 155.w,
       child: Row(children: [
         Text(txt,style: TextStyles.font13whiteBold,),
-        Spacer(),
+        const Spacer(),
         Checkbox(
           activeColor:AppColors.mainColor ,
           visualDensity: VisualDensity.compact,

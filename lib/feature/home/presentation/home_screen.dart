@@ -1,19 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
-import 'package:original_vip/core/helpers/constants/constants.dart';
 import 'package:original_vip/core/routing/routing.dart';
-import 'package:original_vip/feature/home/model/laptop_model.dart';
-import 'package:original_vip/feature/home/presentation/widgets/drawer_item.dart';
 import 'package:original_vip/feature/home/presentation/widgets/laptop_item.dart';
 import 'package:original_vip/feature/home/presentation/widgets/my_appbar.dart';
 import 'package:original_vip/feature/home/presentation/widgets/my_drawer.dart';
 import 'package:original_vip/feature/home/presentation/widgets/top_tab_bar.dart';
+import 'package:original_vip/feature/home/view_model/home_cubit.dart';
 
 import '../../../core/helpers/extentions/extentions.dart';
+import '../../../core/helpers/themes/themes.dart';
 import '../../../demo-data.dart';
+import '../../cart/view_model/cart_cubit.dart';
+import '../../cart/view_model/cart_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -91,13 +93,43 @@ class HomeScreen extends StatelessWidget {
           Positioned(
             bottom: 50.h, // Adjust position
             right: 10.w, // Adjust position
-            child: FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: AppColors.whiteColor,
-              child: const Icon(
-                Icons.shopping_cart,
-                color: AppColors.mainColor,
-              ),
+            child: Stack(
+              children: [
+                FloatingActionButton(
+                  onPressed: () {},
+                  backgroundColor: AppColors.whiteColor,
+                  child: const Icon(
+                    Icons.shopping_cart,
+                    color: AppColors.mainColor,
+                  ),
+                ),
+                if(context.read<CartCubit>().cartItems.isNotEmpty)
+                BlocBuilder<CartCubit, CartState>(
+                  builder: (context, state) {
+                    return  Positioned(
+                      right: 0,
+                      top: 0,
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
+                          color: AppColors.darktGrayColor,
+                          shape: BoxShape.circle,
+                        ),
+                        constraints: const BoxConstraints(
+                          minWidth: 30,
+                          minHeight: 30,
+                        ),
+                        child: Text(
+                          context.read<CartCubit>().cartItems.length.toString(), // Updated to use cartItems.length
+                          style: TextStyles.font14whiteBold,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+
+              ],
             ),
           ),
         ],

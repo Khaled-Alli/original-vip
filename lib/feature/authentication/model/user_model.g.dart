@@ -3,6 +3,59 @@
 part of 'user_model.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class UserAdapter extends TypeAdapter<User> {
+  @override
+  final int typeId = 1;
+
+  @override
+  User read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return User(
+      fields[1] as int,
+      fields[2] as String,
+      fields[5] as int,
+      (fields[4] as List).cast<String>(),
+      fields[3] as String,
+      fields[6] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, User obj) {
+    writer
+      ..writeByte(6)
+      ..writeByte(1)
+      ..write(obj.id)
+      ..writeByte(2)
+      ..write(obj.name)
+      ..writeByte(3)
+      ..write(obj.phone)
+      ..writeByte(4)
+      ..write(obj.orderID)
+      ..writeByte(5)
+      ..write(obj.commission)
+      ..writeByte(6)
+      ..write(obj.role);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

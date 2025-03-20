@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
+import 'package:original_vip/feature/laptop_details/view_model/additional_section_cubit.dart';
+import 'package:original_vip/feature/laptop_details/view_model/additional_section_state.dart';
+import 'package:original_vip/feature/laptop_details/view_model/quantity_cubit.dart';
 
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/themes/themes.dart';
-import '../../model/laptop_model.dart';
-import '../../view_model/home_cubit.dart';
-import '../../view_model/home_state.dart';
+import '../../../home/model/laptop_model.dart';
 
 class LaptopDetailsTotalPriceSection extends StatelessWidget {
   Laptop laptop;
@@ -29,18 +30,22 @@ class LaptopDetailsTotalPriceSection extends StatelessWidget {
         ),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
            AppConstants.totalPriceForDealerText,
             style: TextStyles.font13whiteBold,
           ),
-          Spacer(),
-          BlocBuilder<HomeCubit,HomeState>(builder: (context,state)=>
-          Text(
-            context.read<HomeCubit>().totalPriceForDealer(laptopPrice: laptop.price).toString(),
+          const Spacer(),
+          BlocBuilder<AdditionalSectionCubit,AdditionalSectionState>(builder: (context,state)=>
+          BlocBuilder<QuantityCubit,int>(builder: (context,state)=>
+
+              Text(
+            context.read<QuantityCubit>().totalPriceForDealer(laptopPrice: laptop.price,cartItemSelectedAdditionals: context.read<AdditionalSectionCubit>().state.selectedAdditionals).toString(),
             style: TextStyles.font13whiteBold,
-          ),),
+          ),
+
+          ),
+          ),
         ],
       ),
     );

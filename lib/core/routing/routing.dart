@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/feature/authentication/presentation/login_screen.dart';
-import 'package:original_vip/feature/home/presentation/laptop_details_screen.dart';
+import 'package:original_vip/feature/laptop_details/presentation/laptop_details_screen.dart';
 
 import '../../feature/authentication/view_model/auth_cubit.dart';
 import '../../feature/home/model/laptop_model.dart';
@@ -27,24 +26,15 @@ class AppRouter {
     switch (settings.name) {
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<AuthCubit>(),
-            child: const LoginScreen(),
-          ),
+          builder: (_) => const LoginScreen(),
         );
         case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<HomeCubit>(),
-            child: const HomeScreen(),
-          ),
+          builder: (_) => const HomeScreen(),
         );
         case Routes.laptopDetailsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<HomeCubit>(),
-            child:  LaptopDetailsScreen(arguments as Laptop),
-          ),
+          builder: (_) => LaptopDetailsScreen(arguments as Laptop),
         );
       default:
         return null;

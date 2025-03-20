@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 
 class MyAppBar extends StatelessWidget {
@@ -11,7 +9,7 @@ class MyAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: double.infinity,
         height: 60.h,
      // color: AppColors.lightBackgroundColor,

@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
 import 'package:original_vip/feature/home/model/laptop_model.dart';
 
-import '../../../../core/helpers/colors/colors.dart';
-import '../../../../core/helpers/extentions/extentions.dart';
-import '../../../../core/helpers/themes/themes.dart';
+import '../../../../../core/helpers/colors/colors.dart';
+import '../../../../../core/helpers/extentions/extentions.dart';
+import '../../../../../core/helpers/themes/themes.dart';
 
 class LaptopDetailsNotesSection extends StatelessWidget {
    LaptopDetailsNotesSection(this.laptop,{super.key});

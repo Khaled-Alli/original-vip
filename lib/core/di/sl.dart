@@ -4,8 +4,8 @@ import 'package:original_vip/core/networking/local_cervices.dart';
 import 'package:original_vip/core/networking/web_services.dart';
 import 'package:original_vip/core/routing/routing.dart';
 import 'package:original_vip/feature/authentication/view_model/auth_cubit.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../feature/cart/view_model/cart_cubit.dart';
 import '../../feature/home/view_model/home_cubit.dart';
 
 
@@ -19,15 +19,7 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<AppRouter>(() => AppRouter());
 
-  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<WebServices>()));
-
-  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt<WebServices>()));
-
   getIt.registerLazySingleton<LocalServices>(() => LocalServices());
-
-
-
-  // getIt.registerFactory<AppCubit>(() => AppCubit(getIt<WebServices>()));
 
 
 }

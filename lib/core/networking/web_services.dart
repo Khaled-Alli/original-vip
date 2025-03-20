@@ -16,7 +16,7 @@ class WebServices{
     if (userDoc.exists) {
       return Right(User.fromJson(userDoc.data() as Map<String, dynamic>) ) ;
     } else {
-      return Left(AppConstants.userNotFoundText);
+      return const Left(AppConstants.userNotFoundText);
     }
   }catch(error){
     return Left(error.toString());

@@ -6,8 +6,7 @@ import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
 import '../../../../core/helpers/themes/themes.dart';
-import '../../view_model/home_cubit.dart';
-import '../../view_model/home_state.dart';
+import '../../view_model/quantity_cubit.dart';
 
 class LaptopDetailsNeededQuantitySection extends StatelessWidget {
   const LaptopDetailsNeededQuantitySection({super.key});
@@ -27,17 +26,16 @@ class LaptopDetailsNeededQuantitySection extends StatelessWidget {
         ),
       ),
       child:
-      BlocBuilder<HomeCubit,HomeState>(builder: (context,state)=>
+
       Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             AppConstants.neededQuantityText,
             style: TextStyles.font13whiteBold,
           ),
-          Spacer(),
+          const Spacer(),
           ElevatedButton(
-            onPressed: context.read<HomeCubit>().incCartItemQuantity,
+            onPressed:()=> context.read<QuantityCubit>().incQuantity(),
             child: const Icon(
               Icons.add,
               size: 20,
@@ -45,20 +43,24 @@ class LaptopDetailsNeededQuantitySection extends StatelessWidget {
             ),
           ),
           horizontalSpace(15.w),
+    BlocBuilder<QuantityCubit,int>(builder: (context,state)=>
+
           Text(
-            context.read<HomeCubit>().cartItemQuantity.toString(),
+            state.toString(),
             style: TextStyles.font13whiteBold,
           ),
+
+      ),
           horizontalSpace(15.w),
           ElevatedButton(
-            onPressed: context.read<HomeCubit>().decCartItemQuantity,
+            onPressed:()=> context.read<QuantityCubit>().decQuantity(),
             child: Text(
               "-",
               style: TextStyles.font25mainColorBold,
             ),
           ),
         ],
-      ),),
+      ),
     );
   }
 }

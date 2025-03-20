@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/colors/colors.dart';
@@ -30,35 +29,31 @@ class AppTextFormField extends StatelessWidget {
           filled: true,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              width: 1,
+            borderSide: const BorderSide(
               color: AppColors.darktGrayColor,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              width: 1,
+            borderSide: const BorderSide(
               color: AppColors.lightGrayColor,
             ),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              width: 1,
+            borderSide: const BorderSide(
               color: AppColors.mainColor,
             ),
           ),
           focusedErrorBorder:OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-              width: 1,
+            borderSide: const BorderSide(
               color: AppColors.mainColor,
             ),
           ),
           prefixIcon: prefixIcon,
           hintText: hintText,
-          errorStyle: TextStyle(color: AppColors.mainColor),
+          errorStyle: const TextStyle(color: AppColors.mainColor),
         ),
         keyboardType: keyboardType,
         //  textDirection:TextDirection.rtl,

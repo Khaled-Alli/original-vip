@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +42,7 @@ class LaptopItem extends StatelessWidget {
                   SizedBox(
                     width:125.w,
                       child: Text(laptop.name,style: TextStyles.font13whiteBold ,maxLines: 1,overflow: TextOverflow.ellipsis,)),
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                       width: 60.w,
                       child: Text(laptop.processor,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),

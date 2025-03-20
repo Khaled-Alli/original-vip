@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
-import '../../model/laptop_model.dart';
+import '../../../home/model/laptop_model.dart';
 import 'laptop_details_one_col.dart';
 
 class LaptopDetailsFirstSection extends StatelessWidget {

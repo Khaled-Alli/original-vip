@@ -1,34 +1,50 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:hive/hive.dart';
+import 'package:original_vip/feature/cart/model/cart_item_model.dart';
 
 part 'order_model.g.dart';
-@JsonSerializable()
-class Order{
-  String id;
-  List<String> additionalsID;
-  List<String> laptopsID;
-  String dealerID;
-  String endUserName;
-  String endUserPhone;
-  String endUserAddress;
-  String notes;
-  int endUserPrice;
-  int commission;
 
+@JsonSerializable()
+@HiveType(typeId: 5)
+class Order {
+  @HiveField(1)
+  String id;
+  @HiveField(2)
+  String dealerID;
+  @HiveField(3)
+  String endUserName;
+  @HiveField(4)
+  String endUserPhone;
+  @HiveField(5)
+  String endUserAddress;
+  @HiveField(6)
+  String notes;
+  @HiveField(7)
+  int totalOrderDealerPrice;
+  @HiveField(8)
+  int totalOrderEndUserPrice;
+  @HiveField(9)
+  int commission;
+  @HiveField(10)
+  String orderStatus;
+  @HiveField(11)
+  List<CartItem> cartItems;
 
   Order(
-      this.id,
-      this.laptopsID,
-      this.additionalsID,
-      this.dealerID,
-      this.commission,
-      this.notes,
-      this.endUserName,
-      this.endUserPhone,
-      this.endUserAddress,
-      this.endUserPrice,
-      );
+    this.id,
+    this.dealerID,
+    this.commission,
+    this.notes,
+    this.endUserName,
+    this.endUserPhone,
+    this.endUserAddress,
+    this.totalOrderDealerPrice,
+    this.cartItems,
+    this.orderStatus,
+    this.totalOrderEndUserPrice,
+  );
 
-  factory Order.fromJson(Map<String,dynamic> json)=>_$OrderFromJson(json);
+  factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 
-  Map<String,dynamic> toJson()=>_$OrderToJson(this);
+  Map<String, dynamic> toJson() => _$OrderToJson(this);
 }

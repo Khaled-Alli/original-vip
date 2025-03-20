@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/networking/web_constants.dart';
 import 'package:original_vip/core/networking/web_services.dart';
-import 'package:original_vip/feature/authentication/model/user_model.dart';
 import 'package:original_vip/feature/authentication/view_model/auth_state.dart';
 import '../../../core/helpers/constants/constants.dart';
 import '../../../core/networking/local_cervices.dart';
