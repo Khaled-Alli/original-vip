@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/feature/laptop_details/view_model/additional_section_cubit.dart';
 
@@ -30,14 +31,14 @@ class LaptopDetailsAlertDialog extends StatelessWidget {
             return CheckboxListTile(
               title: Text(item.name),
               activeColor: AppColors.mainColor,
-              value: context.read<AdditionalSectionCubit>().tempList.contains(item),
+              value: context.read<AdditionalSectionCubit>().state.tempList.contains(item),
               subtitle: Text(
                 item.price.toString(),
                 style: TextStyles.font13mainColorBold,
               ),
               onChanged: (bool? checked) {
                   if (checked == true) {
-                   context.read<AdditionalSectionCubit>().addToTempAdditionalList(item);
+                    context.read<AdditionalSectionCubit>().addToTempAdditionalList(item);
                   } else {
                     context.read<AdditionalSectionCubit>().removeFromTempAdditionalList(item);
                   }
@@ -47,7 +48,11 @@ class LaptopDetailsAlertDialog extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              HapticFeedback.lightImpact();
+              context.read<AdditionalSectionCubit>().cancelSelectedAdditionalList();
+              Navigator.pop(context);
+            },
             child: Text(
               AppConstants.cancelText,
               style: TextStyles.font13mainColorBold,
@@ -56,7 +61,8 @@ class LaptopDetailsAlertDialog extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              context.read<AdditionalSectionCubit>().updateAdditionalList() ;
+              HapticFeedback.lightImpact();
+              context.read<AdditionalSectionCubit>().updateSelectedAdditionalList() ;
               Navigator.pop(context);
             },
             child: Text(

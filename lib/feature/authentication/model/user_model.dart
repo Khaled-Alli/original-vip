@@ -19,6 +19,8 @@ class User {
   int commission;
   @HiveField(6)
   String role;
+  @HiveField(7)
+  String password;
 
   User(
      this.id,
@@ -27,6 +29,7 @@ class User {
      this.orderID,
      this.phone,
      this.role,
+     this.password,
   );
   factory User.fromJson(Map<String,dynamic> json)=>_$UserFromJson(json);
 

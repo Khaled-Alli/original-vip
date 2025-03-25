@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +36,10 @@ class LaptopDetailsNeededQuantitySection extends StatelessWidget {
           ),
           const Spacer(),
           ElevatedButton(
-            onPressed:()=> context.read<QuantityCubit>().incQuantity(),
+            onPressed:() {
+              HapticFeedback.lightImpact();
+              context.read<QuantityCubit>().incQuantity();
+            },
             child: const Icon(
               Icons.add,
               size: 20,
@@ -53,7 +57,10 @@ class LaptopDetailsNeededQuantitySection extends StatelessWidget {
       ),
           horizontalSpace(15.w),
           ElevatedButton(
-            onPressed:()=> context.read<QuantityCubit>().decQuantity(),
+            onPressed:() {
+              HapticFeedback.lightImpact();
+              context.read<QuantityCubit>().decQuantity();
+            },
             child: Text(
               "-",
               style: TextStyles.font25mainColorBold,

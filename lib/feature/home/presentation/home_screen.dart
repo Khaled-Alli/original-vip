@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
 import 'package:original_vip/core/routing/routing.dart';
+import 'package:original_vip/feature/cart/model/cart_item_model.dart';
 import 'package:original_vip/feature/home/presentation/widgets/laptop_item.dart';
 import 'package:original_vip/feature/home/presentation/widgets/my_appbar.dart';
 import 'package:original_vip/feature/home/presentation/widgets/my_drawer.dart';
@@ -36,6 +37,7 @@ class HomeScreen extends StatelessWidget {
             builder: (context) => IconButton(
               icon: const Icon(Icons.menu, color: Colors.white),
               onPressed: () {
+                HapticFeedback.lightImpact();
                 Scaffold.of(context).openEndDrawer();
               },
             ),
@@ -50,7 +52,7 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           SafeArea(
-              child: Center(
+          child: Center(
             child: Column(
               children: [
                 DefaultTabController(
@@ -62,25 +64,40 @@ class HomeScreen extends StatelessWidget {
                         height: 540.h,
                         child: TabBarView(children: [
                           ListView.separated(
-                            itemBuilder: (context, index) =>
-                                GestureDetector(child: LaptopItem(laptop: demo_laptops[index],),
-                                onTap: (){
-                                  context.pushNamed(Routes.laptopDetailsScreen,arguments: demo_laptops[index]);
-                                },),
+                            itemBuilder: (context, index) => GestureDetector(
+                              child: LaptopItem(laptop: demo_laptops[index],),
+                              onTap: () {
+                                HapticFeedback.lightImpact();
+                                context.pushNamed(Routes.laptopDetailsScreen,
+                                    arguments: demo_laptops[index]);
+                              },
+                            ),
                             separatorBuilder: (context, index) => verticalSpace(10),
                             itemCount: demo_laptops.length,
                           ),
                           ListView.separated(
-                            itemBuilder: (context, index) =>
-                                LaptopItem(laptop: demo_laptops.where((item)=>!item.inAED).toList()[index],),
+                            itemBuilder: (context, index) => GestureDetector(
+                              child: LaptopItem(laptop: demo_laptops.where((item) => !item.inAED).toList()[index]),
+                              onTap: () {
+                                HapticFeedback.lightImpact();
+                                context.pushNamed(Routes.laptopDetailsScreen,
+                                    arguments: demo_laptops[index]);
+                              },
+                            ),
                             separatorBuilder: (context, index) => verticalSpace(10),
-                            itemCount:  demo_laptops.where((item)=>!item.inAED).toList().length,
+                            itemCount: demo_laptops.where((item) => !item.inAED).toList().length,
                           ),
                           ListView.separated(
-                            itemBuilder: (context, index) =>
-                                LaptopItem(laptop: demo_laptops.where((item)=>item.inAED).toList()[index],),
+                            itemBuilder: (context, index) => GestureDetector(
+                              child: LaptopItem(laptop: demo_laptops.where((item) => item.inAED).toList()[index]),
+                              onTap: () {
+                                HapticFeedback.lightImpact();
+                                context.pushNamed(Routes.laptopDetailsScreen,
+                                    arguments: demo_laptops[index]);
+                              },
+                            ),
                             separatorBuilder: (context, index) => verticalSpace(10),
-                            itemCount: demo_laptops.where((item)=>item.inAED).toList().length,
+                            itemCount: demo_laptops.where((item) => item.inAED).toList().length,
                           ),
                         ]),
                       ),
@@ -90,46 +107,51 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           )),
-          Positioned(
-            bottom: 50.h, // Adjust position
-            right: 10.w, // Adjust position
-            child: Stack(
-              children: [
-                FloatingActionButton(
-                  onPressed: () {},
-                  backgroundColor: AppColors.whiteColor,
-                  child: const Icon(
-                    Icons.shopping_cart,
-                    color: AppColors.mainColor,
+          BlocBuilder<CartCubit,List<CartItem>>(
+            builder:(context,state)=> Positioned(
+              bottom: 50.h, // Adjust position
+              right: 10.w, // Adjust position
+              child: Stack(
+                children: [
+                  FloatingActionButton(
+                    onPressed: () {
+                      HapticFeedback.lightImpact();
+                      context.pushNamed(Routes.CartScreen);
+                    },
+                    backgroundColor: AppColors.whiteColor,
+                    child: const Icon(
+                      Icons.shopping_cart,
+                      color: AppColors.mainColor,
+                    ),
                   ),
-                ),
-                if(context.read<CartCubit>().cartItems.isNotEmpty)
-                BlocBuilder<CartCubit, CartState>(
-                  builder: (context, state) {
-                    return  Positioned(
+                  if (context.read<CartCubit>().cartItems.isNotEmpty)
+                    Positioned(
                       right: 0,
                       top: 0,
-                      child: Container(
-                        padding: EdgeInsets.all(4),
-                        decoration: const BoxDecoration(
-                          color: AppColors.darktGrayColor,
-                          shape: BoxShape.circle,
-                        ),
-                        constraints: const BoxConstraints(
-                          minWidth: 30,
-                          minHeight: 30,
-                        ),
-                        child: Text(
-                          context.read<CartCubit>().cartItems.length.toString(), // Updated to use cartItems.length
-                          style: TextStyles.font14whiteBold,
-                          textAlign: TextAlign.center,
+                      child: IgnorePointer(
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: const BoxDecoration(
+                            color: AppColors.darktGrayColor,
+                            shape: BoxShape.circle,
+                          ),
+                          constraints: const BoxConstraints(
+                            minWidth: 30,
+                            minHeight: 30,
+                          ),
+                          child: BlocBuilder<CartCubit, List<CartItem>>(
+                            builder: (context, state) => Text(
+                              context.read<CartCubit>().cartItems.length.toString(),
+                              // Updated to use cartItems.length
+                              style: TextStyles.font14whiteBold,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
                         ),
                       ),
-                    );
-                  },
-                ),
-
-              ],
+                    ),
+                ],
+              ),
             ),
           ),
         ],

@@ -1,53 +1,52 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
+import 'package:original_vip/core/networking/web_constants.dart';
 import 'package:original_vip/feature/cart/model/cart_item_model.dart';
+
+import '../../feature/authentication/model/user_model.dart';
 
 
 class LocalServices {
 
-  Future<Box> openBox({ required String boxName}) async {
-    return await Hive.openBox(boxName);
+  Future<void> saveUser(User user) async {
+    var box = await Hive.openBox<User>(ServicesConstants.userBox);
+    await box.put(ServicesConstants.USER_TEXT, user);
   }
 
-  Future<void> putData({required String boxName, required String key,required  dynamic value}) async {
-    final box = await openBox(boxName:  boxName);
-    await box.put(key, value);
+  Future<User?> getUser(String id) async{
+    var box = await Hive.openBox<User>(ServicesConstants.userBox);
+    print(box.get(id)?.phone);
+    return box.get(id);
   }
 
-  Future<dynamic> getData({required String boxName, required String key}) async{
-    final box = await openBox(boxName:  boxName);
-    box.toMap().map(
-          (k, e) => MapEntry(
-        k.toString(),
-        Map<String, dynamic>.from(e),
-      ),
-    );
-    return box.get(key) ;
+  Future<void> deleteUser(String id) async {
+    var box = await Hive.openBox<User>(ServicesConstants.userBox);
+    await box.delete(id);
   }
 
-  Future<void> deleteData({required String boxName, required String key}) async {
-    final box = await openBox(boxName: boxName);
-    await box.delete(key);
+  Future<void> saveCartItems(List<CartItem> cartItems) async {
+    var box = await Hive.openBox<CartItem>(ServicesConstants.cartItemBox);
+    for (var cartItem in cartItems) {
+      await box.put(cartItem.id, cartItem);
+    }
   }
 
-  Future<void> closeBox({required String boxName}) async {
-    final box = await openBox(boxName: boxName);
-    await box.close();
-  }
+  Future<void> removeCartItem(String cartItemId) async {
+    var box = await Hive.openBox<CartItem>(ServicesConstants.cartItemBox);
 
-  Future<void> saveCartItem(CartItem cartItem) async {
-    var box = await Hive.openBox<CartItem>(AppConstants.cartItemBox);
-    await box.put(cartItem.id, cartItem);
+    if (box.containsKey(cartItemId)) {
+      await box.delete(cartItemId);
+    }
   }
 
   Future<CartItem?> getCartItem(String id) async {
-    var box = await Hive.openBox<CartItem>(AppConstants.cartItemBox);
+    var box = await Hive.openBox<CartItem>(ServicesConstants.cartItemBox);
     return box.get(id);
   }
 
   Future<List<CartItem>> getAllCartItems() async {
-    var box = await Hive.openBox<CartItem>(AppConstants.cartItemBox);
+    var box = await Hive.openBox<CartItem>(ServicesConstants.cartItemBox);
     return box.values.toList();
   }
 

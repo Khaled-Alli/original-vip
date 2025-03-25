@@ -17,10 +17,10 @@ extension Navigation on BuildContext {
   }
 
   Future<dynamic> pushNamedAndRemoveUntil(String routeName,
-      {Object? arguments, required RoutePredicate predicate})
+      {Object? arguments})
   {
     return Navigator.of(this)
-        .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
+        .pushNamedAndRemoveUntil(routeName, (Route<dynamic> route) => false, arguments: arguments);
   }
 
   void pop() => Navigator.of(this).pop(true);
@@ -43,7 +43,11 @@ SizedBox horizontalSpace(double width) => SizedBox(
   width: width.w,
 );
 
-Widget divider() =>  Container(
+Widget dividerVertical() =>  Container(
   padding: EdgeInsets.symmetric(vertical: 5.h),
   child: const Divider(color: AppColors.darktGrayColor,),
+);
+Widget dividerHorizontal() =>  Container(
+  padding: EdgeInsets.symmetric(horizontal: 5.h),
+  child: const Divider(color: AppColors.lightGrayColor,),
 );

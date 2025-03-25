@@ -16,8 +16,7 @@ import 'feature/home/view_model/home_cubit.dart';
 
 
 class OriginalVIP extends StatelessWidget {
-  final AppRouter appRouter;
-
+   final AppRouter appRouter;
   OriginalVIP({
     super.key,
     required this.appRouter,
@@ -27,14 +26,12 @@ class OriginalVIP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ScreenUtilInit(
         minTextAdapt: true,
         builder: (context, child) {
           return FutureBuilder(
-              future: getIt<LocalServices>().getData(
-                boxName: ServicesConstants.USER_TEXT,
-                key: ServicesConstants.USER_TEXT,
-              ),
+              future: getIt<LocalServices>().getUser(ServicesConstants.USER_TEXT,),
               builder: (context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -43,20 +40,13 @@ class OriginalVIP extends StatelessWidget {
                   ));
                 }
                 if (snapshot.hasData && snapshot.data != null) {
-                  user = User(
-                    snapshot.data["id"],
-                    snapshot.data["name"],
-                    snapshot.data["commission"],
-                    snapshot.data["orderID"],
-                    snapshot.data["phone"],
-                    snapshot.data["role"],
-                  );
+                  user = snapshot.data;
                 }
                 return
                   MultiBlocProvider(
                   providers: [
-                    BlocProvider<AuthCubit>(create: (context) => AuthCubit(getIt<WebServices>()),),
-                    BlocProvider<CartCubit>(create: (context) => CartCubit(getIt<WebServices>()),),
+                    BlocProvider<AuthCubit>(create: (context) => AuthCubit(getIt<WebServices>(),getIt<LocalServices>()),),
+                    BlocProvider<CartCubit>(create: (context) => CartCubit(getIt<WebServices>(),getIt<LocalServices>()),),
                     BlocProvider<HomeCubit>(create: (context) => HomeCubit(getIt<WebServices>())),
                     // BlocProvider<LaptopDetailsCubit>(create: (context) => LaptopDetailsCubit(getIt<WebServices>(),CartCubit.get(context)),),
 
@@ -69,8 +59,7 @@ class OriginalVIP extends StatelessWidget {
                       debugShowCheckedModeBanner: false,
                       title: AppConstants.APP_NAME,
                       theme: ThemeData.dark(),
-                      initialRoute:
-                          user != null ? Routes.homeScreen : Routes.loginScreen,
+                      initialRoute: user != null ? Routes.homeScreen : Routes.loginScreen,
                       onGenerateRoute: appRouter.generateRoute,
                     ),
                   ),

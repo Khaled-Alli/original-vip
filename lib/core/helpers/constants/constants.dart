@@ -2,7 +2,7 @@ class AppConstants{
   static const APP_NAME="Original VIP";
 
 
-  static const cartItemBox="cartItemBox";
+
 
 
 
@@ -12,6 +12,7 @@ class AppConstants{
   static const appIconImagePath="assets/images/app-icon.png";
   static const noInternetImagePath="assets/images/no-connection.png";
   static const userImagePath="assets/images/user.png";
+  static const emptyCartImagePath="assets/images/empty-cart.png";
 
 
 
@@ -24,7 +25,7 @@ class AppConstants{
   static const enterValidPhoneText='أدخل رقم تليفون صحيح';
   static const enterEndUserPriceText='أدخل السعر لليوزر';
   static const enterValidPasswordText='أدخل باسورد لا يقل عن 8 أحرف أو أرقام';
-  static const userNotFoundText='المستخدم غير موجود';
+  static const userNotFoundText='المستخدم غير موجود أو بيانات خاطئة';
   static const userCreatedSuccessfullyText="تم إنشاء المسوق بنجح";
   static const errorWhileUserCreationText="خطأ فى إنشاء المسوق";
   static const checkInternetConnectionText="تأكد من إتصالك بالإنترنت";
@@ -53,7 +54,26 @@ class AppConstants{
   static const saveText= "حفظ";
   static const neededQuantityText= "العدد المطلوب";
   static const notesText= "ملاحظات :";
+  static const enterNotesText= "أدخل ملاحظات للاوردر :";
   static const totalPriceForDealerText="إجمالى السعر للديلر";
   static const priceForEndUserText="السعر لليوزر";
   static const addToCartText="إضافة للسلة";
+
+  static const laptopInCartText="اللابتوب موجود فى السلة";
+  static const CartText="السلة";
+  static const commissionText="العمولة : ";
+  static const totalEndUserPriceText="إجمالي السعر للعميل : ";
+  static const totalDealerPriceText="إجمالي السعر للديلر : ";
+  static const addressText="العنوان";
+  static const phoneNumberText="رقم التليفون";
+  static const userInfoText="بيانات العميل";
+  static const enterThisInfo="أدخل هذه البيانات";
+  static const makeOrder="إنشاء أوردر";
+  static const noProductOnCart="لا يوجد منتجات فى السلة";
+  static const profileText="الملف الشخصى";
+  static const ensureInternetConnection="تأكد من إتصالك بالإنترنت";
+  static const totalPriceForDealerTXT="إجمالى السعر \n للديلر";
+  static const totalPriceForEndUserTXT="إجمالى السعر \n للعميل";
+  static const commissionTXT="العمولة";
+  static const additionalsTXT="الإضافات";
 }

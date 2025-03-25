@@ -8,7 +8,6 @@ class QuantityCubit extends Cubit<int>{
   int totalCartItemDealerPrice = 0;
 
   void incQuantity() {
-
     emit(state + 1);
   }
 

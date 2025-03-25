@@ -1,33 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/colors/colors.dart';
+import '../../../../core/helpers/constants/constants.dart';
 
-class AppTextFormField extends StatelessWidget {
-  AppTextFormField({
-    super.key,
-    required this.textFormController,
-    required this.prefixIcon,
-    required this.hintText,
-    required this.keyboardType,
-    required this.validator,
-    this.filledColor,
-  });
-
-  TextEditingController textFormController;
-  Widget prefixIcon;
-  String hintText;
-  TextInputType keyboardType;
-  Function(String?) validator;
-  Color? filledColor;
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
+    return  Directionality(
       textDirection: TextDirection.rtl,
       child: TextFormField(
-        controller: textFormController,
+
+        // controller: textFormController,
+        maxLines: null,
         decoration: InputDecoration(
-          fillColor: filledColor ?? AppColors.darktGrayColor,
+          fillColor: AppColors.darktGrayColor,
           filled: true,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
@@ -53,15 +41,14 @@ class AppTextFormField extends StatelessWidget {
               color: AppColors.mainColor,
             ),
           ),
-          prefixIcon: prefixIcon,
-          hintText: hintText,
+          hintText: AppConstants.enterNotesText,
           errorStyle: const TextStyle(color: AppColors.mainColor),
         ),
-        keyboardType: keyboardType,
+       // keyboardType: TextInputType.name,
         //  textDirection:TextDirection.rtl,
-        validator: (value) {
-          return validator(value);
-        },
+        // validator: (value) {
+        // //  return validator(value);
+        // },
       ),
     );
   }

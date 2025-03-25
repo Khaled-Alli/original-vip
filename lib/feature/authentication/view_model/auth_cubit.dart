@@ -6,27 +6,25 @@ import 'package:original_vip/core/networking/web_services.dart';
 import 'package:original_vip/feature/authentication/view_model/auth_state.dart';
 import '../../../core/helpers/constants/constants.dart';
 import '../../../core/networking/local_cervices.dart';
+import '../model/user_model.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   WebServices webServices;
-
-  AuthCubit(this.webServices) : super(AuthInitialState());
+  LocalServices localServices;
+  AuthCubit(this.webServices,this.localServices) : super(AuthInitialState());
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  late User user ;
 
   Future<void> login() async {
     emit(AuthLoadingState());
-    var result = await webServices.getUser(phoneController.text.trim());
+    var result = await webServices.getUser(phoneController.text.trim(),passwordController.text.trim());
     result.fold((error) {
       emit(AuthFailedState(error));
     }, (user) async{
-     await getIt<LocalServices>().putData(
-        boxName: ServicesConstants.USER_TEXT,
-        key: ServicesConstants.USER_TEXT,
-        value: user.toJson(),
-      );
-
+      this.user = user;
+      await localServices.saveUser(user);
       emit(AuthDoneState(user));
     });
   }

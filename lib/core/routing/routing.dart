@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:original_vip/feature/authentication/presentation/login_screen.dart';
+import 'package:original_vip/feature/cart/presentation/cart_screen.dart';
 import 'package:original_vip/feature/laptop_details/presentation/laptop_details_screen.dart';
 
+import '../../feature/authentication/model/user_model.dart';
 import '../../feature/authentication/view_model/auth_cubit.dart';
 import '../../feature/home/model/laptop_model.dart';
 import '../../feature/home/presentation/home_screen.dart';
 import '../../feature/home/view_model/home_cubit.dart';
+import '../../original_vip.dart';
 import '../di/sl.dart';
 
 class Routes {
@@ -14,6 +18,7 @@ class Routes {
   static const loginScreen = '/login';
   static const registerScreen = '/register';
   static const laptopDetailsScreen = '/laptopDetails';
+  static const CartScreen = '/cart';
   //static const home = '/home';
 }
 
@@ -36,6 +41,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => LaptopDetailsScreen(arguments as Laptop),
         );
+        case Routes.CartScreen:
+        return MaterialPageRoute(
+          builder: (_) => const CartScreen(),
+        );
       default:
         return null;
     }
@@ -43,27 +52,23 @@ class AppRouter {
 }
 
 
-// class AppRouter {
-//   AppRouter();
-//
+// class AppRouterr {
+//   AppRouterr();
 //   static GoRouter router = GoRouter(
+//     initialLocation: context.read<AuthCubit>().user != null ? Routes.homeScreen : Routes.loginScreen,
 //     routes: [
 //       GoRoute(
-//         path: Routes.home,
-//         builder: (context, state) => BlocProvider<AuthCubit>(
-//           create: (context) => getIt<AuthCubit>(),
-//           child: const LoginScreen(),
-//         ),
+//       path:  Routes.loginScreen,
+//       builder: (context, state) =>  const LoginScreen(),
+//     ),
+//       GoRoute(
+//         path: Routes.homeScreen,
+//         builder: (context, state) => const HomeScreen(),
 //       ),
-//       // GoRoute(
-//       //   path: Routes.home,
-//       //   builder: (context, state) => Layout(),
-//       // ),
-//
-//       // GoRoute(
-//       //   path: Routes.playListDownloadScreenRout,
-//       //   builder: (context, state) => PlayListDownloadScreen(playListModel:state.extra as PlayListModel,),
-//       // ),
+//       GoRoute(
+//         path: Routes.laptopDetailsScreen,
+//         builder: (context, state) =>LaptopDetailsScreen(state.extra as Laptop)
+//       ),
 //     ],
 //   );
 // }

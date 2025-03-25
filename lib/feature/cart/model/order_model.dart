@@ -29,6 +29,8 @@ class Order {
   String orderStatus;
   @HiveField(11)
   List<CartItem> cartItems;
+  @HiveField(12)
+  DateTime date;
 
   Order(
     this.id,
@@ -42,6 +44,7 @@ class Order {
     this.cartItems,
     this.orderStatus,
     this.totalOrderEndUserPrice,
+    this.date,
   );
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);

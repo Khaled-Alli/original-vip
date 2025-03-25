@@ -28,13 +28,14 @@ class OrderAdapter extends TypeAdapter<Order> {
       (fields[11] as List).cast<CartItem>(),
       fields[10] as String,
       fields[8] as int,
+      fields[12] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, Order obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
@@ -56,7 +57,9 @@ class OrderAdapter extends TypeAdapter<Order> {
       ..writeByte(10)
       ..write(obj.orderStatus)
       ..writeByte(11)
-      ..write(obj.cartItems);
+      ..write(obj.cartItems)
+      ..writeByte(12)
+      ..write(obj.date);
   }
 
   @override
@@ -88,6 +91,7 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
           .toList(),
       json['orderStatus'] as String,
       (json['totalOrderEndUserPrice'] as num).toInt(),
+      DateTime.parse(json['date'] as String),
     );
 
 Map<String, dynamic> _$OrderToJson(Order instance) => <String, dynamic>{
@@ -102,4 +106,5 @@ Map<String, dynamic> _$OrderToJson(Order instance) => <String, dynamic>{
       'commission': instance.commission,
       'orderStatus': instance.orderStatus,
       'cartItems': instance.cartItems,
+      'date': instance.date.toIso8601String(),
     };

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/feature/laptop_details/presentation/widgets/laptop_details_alert_dialog.dart';
@@ -31,6 +32,7 @@ class LaptopDetailsAdditionalsSection extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed:(){
+                HapticFeedback.lightImpact();
                 showDialog(
                     context: context,
                     builder: (dialogContext)=> BlocProvider.value(
