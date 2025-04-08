@@ -46,17 +46,17 @@ class CartItemBuilder extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                          Text(cartItem.laptop.name,style: TextStyles.font13whiteBold ,maxLines: 1,overflow: TextOverflow.ellipsis,),
-                          Text(cartItem.laptop.viga,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
+                          Text(cartItem.laptop![0].name,style: TextStyles.font13whiteBold ,maxLines: 1,overflow: TextOverflow.ellipsis,),
+                          Text(cartItem.laptop![0].viga,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
                                   width: 45.w,
-                                  child: Text(cartItem.laptop.ram,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                                  child: Text(cartItem.laptop![0].ram,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
                               SizedBox(
                                   width: 50.w,
-                                  child: Text(cartItem.laptop.hard,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                                  child: Text(cartItem.laptop![0].hard,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
                             ],),
                         ],),
                       ),
@@ -64,9 +64,9 @@ class CartItemBuilder extends StatelessWidget {
                         width: 70.w,
                          child:   Column(
                           children: [
-                            Text(cartItem.laptop.processor,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
+                            Text(cartItem.laptop![0].processor,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
                             verticalSpace(4),
-                            Text("${cartItem.laptop.price} L.E",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
+                            Text("${cartItem.laptop![0].price} L.E",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
                             Text("X",style: TextStyles.font10mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
                             Text("${cartItem.amount}",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
                           ],
@@ -87,9 +87,14 @@ class CartItemBuilder extends StatelessWidget {
                           Expanded(
                             child: Padding(
                               padding:  EdgeInsets.only(right: 10.w),
-                              child: Text("${cartItem.additionals.map((i) {
-                                return "${i.name} ";
-                              })}",style: TextStyles.font13whiteBold,maxLines: 2,overflow: TextOverflow.ellipsis,),
+                              child: Text(
+                                cartItem.additionals!.isEmpty
+                                    ? AppConstants.noAdditionalsText
+                                    : cartItem.additionals!.map((i) => "${i.name} X ${i.amount}").join(", "),
+                                style: TextStyles.font13whiteBold,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ),
                           SizedBox(height: 30.h,

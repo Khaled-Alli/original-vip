@@ -18,9 +18,9 @@ class CartItem {
   @HiveField(4)
   int totalCartItemEndUserPrice;
   @HiveField(5)
-  Laptop laptop;
+  List<Laptop>? laptop;
   @HiveField(6)
-  List<Additional> additionals;
+  List<Additional>? additionals;
 
   CartItem(
     this.id,

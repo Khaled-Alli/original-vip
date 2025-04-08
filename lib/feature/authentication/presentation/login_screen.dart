@@ -22,16 +22,16 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is AuthFailedState) {
+        if (state is AuthErrorState) {
           Fluttertoast.showToast(
-            msg: state.errMsg,
+            msg: state.errorMessage,
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 16.0,
           );
-        } else if (state is AuthDoneState) {
+        } else if (state is AuthLoadedState) {
           Fluttertoast.showToast(
             msg: AppConstants.loginSuccessfullyText,
             toastLength: Toast.LENGTH_SHORT,

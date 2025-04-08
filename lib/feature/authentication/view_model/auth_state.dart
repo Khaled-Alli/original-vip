@@ -8,13 +8,14 @@ class AuthInitialState extends AuthState {}
 
 class AuthLoadingState extends AuthState {}
 
-class AuthDoneState extends AuthState {
+class AuthLoadedState extends AuthState {
 User user ;
-AuthDoneState(this.user);
+AuthLoadedState(this.user);
 }
 
-class AuthFailedState extends AuthState {
-  final String errMsg;
+class AuthErrorState extends AuthState
+{
+  final String errorMessage;
 
-   AuthFailedState(this.errMsg);
+   AuthErrorState(this.errorMessage);
 }

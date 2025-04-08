@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class DrawerItem extends StatelessWidget {
   String text;
-  Function onTap;
+  Function() onTap;
    DrawerItem({super.key,required this.text,required this.onTap});
 
   @override
@@ -11,7 +11,7 @@ class DrawerItem extends StatelessWidget {
       title: Text(
         text,textDirection: TextDirection.rtl,
       ),
-      onTap: () => onTap,
+      onTap:  onTap,
       leading: const Icon(
         Icons.arrow_back_ios_new,
         color: Colors.white,

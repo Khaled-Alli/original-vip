@@ -15,18 +15,41 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  late User user ;
+   User? user ;
 
   Future<void> login() async {
     emit(AuthLoadingState());
     var result = await webServices.getUser(phoneController.text.trim(),passwordController.text.trim());
     result.fold((error) {
-      emit(AuthFailedState(error));
-    }, (user) async{
-      this.user = user;
-      await localServices.saveUser(user);
-      emit(AuthDoneState(user));
+      emit(AuthErrorState(error));
+    }, (userInfo) async{
+       user = userInfo;
+      await localServices.saveUser(userInfo);
+      emit(AuthLoadedState(userInfo));
     });
+  }
+
+  Future<bool> isUserAuthenticable() async {
+
+      User? localUser = await localServices.getUser(ServicesConstants.USER_TEXT,);
+      if (localUser == null) {
+        return false;
+      }
+      var result = await webServices.getUser(localUser.phone, localUser.password);
+      return result.fold(
+            (error) {
+          emit(AuthErrorState(error));
+          return false;
+        },
+            (userInfo) {
+              print("${userInfo.id} ******* userInfo.id  ******" );
+
+          user = userInfo;
+          print("${user?.id} ****** user.id ******" );
+          emit(AuthLoadedState(userInfo));
+          return true;
+        },
+      );
   }
 
   phoneValidator(value) {

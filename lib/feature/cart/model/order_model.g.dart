@@ -25,10 +25,10 @@ class OrderAdapter extends TypeAdapter<Order> {
       fields[4] as String,
       fields[5] as String,
       fields[7] as int,
-      (fields[11] as List).cast<CartItem>(),
+      (fields[11] as List?)?.cast<CartItem>(),
       fields[10] as String,
       fields[8] as int,
-      fields[12] as DateTime,
+      fields[12] as String,
     );
   }
 
@@ -85,13 +85,13 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       json['endUserName'] as String,
       json['endUserPhone'] as String,
       json['endUserAddress'] as String,
-      (json['totalOrderDealerPrice'] as num).toInt(),
-      (json['cartItems'] as List<dynamic>)
-          .map((e) => CartItem.fromJson(e as Map<String, dynamic>))
+      (json['totalDealerPrice'] as num).toInt(),
+      (json['cartItems'] as List<dynamic>?)
+          ?.map((e) => CartItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['orderStatus'] as String,
-      (json['totalOrderEndUserPrice'] as num).toInt(),
-      DateTime.parse(json['date'] as String),
+      (json['totalEndUserPrice'] as num).toInt(),
+      json['date'] as String,
     );
 
 Map<String, dynamic> _$OrderToJson(Order instance) => <String, dynamic>{
@@ -101,10 +101,10 @@ Map<String, dynamic> _$OrderToJson(Order instance) => <String, dynamic>{
       'endUserPhone': instance.endUserPhone,
       'endUserAddress': instance.endUserAddress,
       'notes': instance.notes,
-      'totalOrderDealerPrice': instance.totalOrderDealerPrice,
-      'totalOrderEndUserPrice': instance.totalOrderEndUserPrice,
+      'totalDealerPrice': instance.totalOrderDealerPrice,
+      'totalEndUserPrice': instance.totalOrderEndUserPrice,
       'commission': instance.commission,
       'orderStatus': instance.orderStatus,
-      'cartItems': instance.cartItems,
-      'date': instance.date.toIso8601String(),
+     // 'cartItems': instance.cartItems?.map((cartItem) => cartItem.toJson()).toList() ?? [],
+      'date': instance.date,
     };

@@ -16,13 +16,20 @@ class LocalServices {
 
   Future<User?> getUser(String id) async{
     var box = await Hive.openBox<User>(ServicesConstants.userBox);
-    print(box.get(id)?.phone);
     return box.get(id);
   }
 
   Future<void> deleteUser(String id) async {
     var box = await Hive.openBox<User>(ServicesConstants.userBox);
     await box.delete(id);
+  }
+
+  Future<void> deleteUserBox() async {
+    await Hive.deleteBoxFromDisk(ServicesConstants.userBox);
+  }
+
+  Future<void> deleteCartBox() async {
+    await Hive.deleteBoxFromDisk(ServicesConstants.cartItemBox);
   }
 
   Future<void> saveCartItems(List<CartItem> cartItems) async {

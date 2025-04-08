@@ -37,7 +37,7 @@ class LaptopDetailsAdditionalsSection extends StatelessWidget {
                     context: context,
                     builder: (dialogContext)=> BlocProvider.value(
                         value: BlocProvider.of<AdditionalSectionCubit>(context),
-                        child:  LaptopDetailsAlertDialog())
+                        child:  const LaptopDetailsAlertDialog())
 
                 );
               },
@@ -57,16 +57,14 @@ class LaptopDetailsAdditionalsSection extends StatelessWidget {
                 BlocBuilder<AdditionalSectionCubit,AdditionalSectionState>(
                   builder:(context,state)=>
                       Text(
-                  state.selectedAdditionals.isEmpty
-                      ? AppConstants.noAdditionalsText
-                      : "${state.selectedAdditionals.map((i) {
-                    return "${i.name} ";
-                  })}",
-                  style: TextStyles.font13whiteBold,
-                  textDirection: TextDirection.ltr,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),),
+                        state.selectedAdditionals.isEmpty
+                            ? AppConstants.noAdditionalsText
+                            : state.selectedAdditionals.map((i) => "${i.name} X ${state.tempAmounts[i.id] ?? 1}").join(", "),
+                        style: TextStyles.font13whiteBold,
+                        textDirection: TextDirection.ltr,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),),
 
 
               ),

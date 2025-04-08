@@ -8,7 +8,7 @@ part 'user_model.g.dart';
 @HiveType(typeId: 1)
 class User {
   @HiveField(1)
-  int id;
+  String id;
   @HiveField(2)
   String name;
   @HiveField(3)

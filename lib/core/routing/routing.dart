@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:original_vip/feature/authentication/presentation/login_screen.dart';
 import 'package:original_vip/feature/cart/presentation/cart_screen.dart';
 import 'package:original_vip/feature/laptop_details/presentation/laptop_details_screen.dart';
 
-import '../../feature/authentication/model/user_model.dart';
-import '../../feature/authentication/view_model/auth_cubit.dart';
 import '../../feature/home/model/laptop_model.dart';
 import '../../feature/home/presentation/home_screen.dart';
-import '../../feature/home/view_model/home_cubit.dart';
-import '../../original_vip.dart';
-import '../di/sl.dart';
+import '../../feature/user_profile/presentation/user_profile.dart';
+
 
 class Routes {
   static const homeScreen = '/home';
@@ -19,7 +14,7 @@ class Routes {
   static const registerScreen = '/register';
   static const laptopDetailsScreen = '/laptopDetails';
   static const CartScreen = '/cart';
-  //static const home = '/home';
+  static const userProfile = '/userProfile';
 }
 
 
@@ -44,6 +39,10 @@ class AppRouter {
         case Routes.CartScreen:
         return MaterialPageRoute(
           builder: (_) => const CartScreen(),
+        );
+        case Routes.userProfile:
+        return MaterialPageRoute(
+          builder: (_) =>  UserProfile(),
         );
       default:
         return null;

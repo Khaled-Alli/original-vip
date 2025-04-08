@@ -24,7 +24,7 @@ class QuantityCubit extends Cubit<int>{
       return totalCartItemDealerPrice;
     } else {
       tempPrice = cartItemSelectedAdditionals.fold(
-          0, (previousValue, additional) => previousValue + additional.price);
+          0, (previousValue, additional) => previousValue + (additional.price * additional.amount));
       totalCartItemDealerPrice = tempPrice + (laptopPrice * state);
       return totalCartItemDealerPrice;
     }

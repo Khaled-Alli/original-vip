@@ -5,20 +5,25 @@ part 'additional_model.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 3)
-class Additional{
+class Additional {
   @HiveField(1)
   String id;
   @HiveField(2)
   String name;
   @HiveField(3)
   int price;
+  @HiveField(4)
+  int amount;
 
   Additional(
-      this.id,
-      this.name,
-      this.price,);
+    this.id,
+    this.name,
+    this.price, {
+    this.amount = 1,
+  });
 
-  factory Additional.fromJson(Map<String,dynamic> json)=>_$AdditionalFromJson(json);
+  factory Additional.fromJson(Map<String, dynamic> json) =>
+      _$AdditionalFromJson(json);
 
-  Map<String,dynamic> toJson()=>_$AdditionalToJson(this);
+  Map<String, dynamic> toJson() => _$AdditionalToJson(this);
 }

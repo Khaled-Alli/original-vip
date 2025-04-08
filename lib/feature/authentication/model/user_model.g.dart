@@ -17,7 +17,7 @@ class UserAdapter extends TypeAdapter<User> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return User(
-      fields[1] as int,
+      fields[1] as String,
       fields[2] as String,
       fields[5] as int,
       (fields[4] as List).cast<String>(),
@@ -63,7 +63,7 @@ class UserAdapter extends TypeAdapter<User> {
 // **************************************************************************
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
-      (json['id'] as num).toInt(),
+      json['id'] as String,
       json['name'] as String,
       (json['commission'] as num).toInt(),
       (json['orderID'] as List<dynamic>).map((e) => e as String).toList(),

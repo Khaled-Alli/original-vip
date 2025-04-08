@@ -69,7 +69,7 @@ class LaptopDetailsLastSection extends StatelessWidget {
                       context.read<QuantityCubit>().state,
                       context.read<QuantityCubit>().totalCartItemDealerPrice,
                       int.parse(userPriceController.text),
-                      laptop,
+                      [laptop],
                       context.read<AdditionalSectionCubit>().state.selectedAdditionals,
                     ));
                 context.pushNamedAndRemoveUntil(Routes.homeScreen);

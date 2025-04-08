@@ -15,6 +15,9 @@ class AppConstants{
   static const emptyCartImagePath="assets/images/empty-cart.png";
 
 
+  static const orderStatus_Pending='pending';
+  static const orderStatus_InProgress='inProgress';
+  static const orderStatus_Delivered='delivered';
 
 
 
@@ -23,10 +26,11 @@ class AppConstants{
   static const enterPhoneText="أدخل رقم التليفون";
   static const enterPasswordText="أدخل الباسورد";
   static const enterValidPhoneText='أدخل رقم تليفون صحيح';
-  static const enterEndUserPriceText='أدخل السعر لليوزر';
+  static const enterEndUserPriceText='أدخل السعر للعميل';
   static const enterValidPasswordText='أدخل باسورد لا يقل عن 8 أحرف أو أرقام';
   static const userNotFoundText='المستخدم غير موجود أو بيانات خاطئة';
   static const userCreatedSuccessfullyText="تم إنشاء المسوق بنجح";
+  static const orderCreatedSuccessfullyText="تم إنشاء الطلب بنجح";
   static const errorWhileUserCreationText="خطأ فى إنشاء المسوق";
   static const checkInternetConnectionText="تأكد من إتصالك بالإنترنت";
   static const loginSuccessfullyText="تم تسجيل الدخول بنجاح";
@@ -56,7 +60,7 @@ class AppConstants{
   static const notesText= "ملاحظات :";
   static const enterNotesText= "أدخل ملاحظات للاوردر :";
   static const totalPriceForDealerText="إجمالى السعر للديلر";
-  static const priceForEndUserText="السعر لليوزر";
+  static const priceForEndUserText="السعر للعميل";
   static const addToCartText="إضافة للسلة";
 
   static const laptopInCartText="اللابتوب موجود فى السلة";
@@ -71,9 +75,31 @@ class AppConstants{
   static const makeOrder="إنشاء أوردر";
   static const noProductOnCart="لا يوجد منتجات فى السلة";
   static const profileText="الملف الشخصى";
+  static const logOutText="تسجيل الخروج";
   static const ensureInternetConnection="تأكد من إتصالك بالإنترنت";
   static const totalPriceForDealerTXT="إجمالى السعر \n للديلر";
   static const totalPriceForEndUserTXT="إجمالى السعر \n للعميل";
   static const commissionTXT="العمولة";
   static const additionalsTXT="الإضافات";
+  static const amountTXT= "عدد";
+  static const availableBalanceTXT= "المبلغ المتاح";
+  static const pendingBalanceTXT= "المبلغ المعلق";
+  static const paymentHistory_separated_TXT= "سجل\nالمدفوعات";
+  static const paymentHistoryTXT= "سجل المدفوعات";
+  static const balanceTXT= "المبلغ : ";
+  static const dateTXT= "التوقيت : ";
+  static const closeTXT="إغلاق";
+  static const pendingOrdersTXT="طلبات معلقه";
+  static const inProgressOrdersTXT="طلبات قيد التنفيذ";
+  static const deliveredOrdersTXT="طلبات تم تسليمها";
+  static const endUserPhoneTXT="رقم العميل 📞";
+  static const endUserAddressTXT="عنوان العميل 🏠";
+  static const endUserTXT="العميل : ";
+  static const commission_TXT="العمولة : ";
+  static const dealerPriceTXT="السعر للديلر : ";
+  static const endUserPriceTXT="السعر لليوزر : ";
+  static const noAvailableLaptopsTXT="لا يوجد لابتوبات متاحه";
+  static const noAvailableAdditionalsTXT="لا يوجد إضافات متاحه";
+  static const noAvailablePaymentsTXT="لا نوجد مدفوعات";
+  static const noAvailableOrdersTXT="لا يوجد طلبات";
 }

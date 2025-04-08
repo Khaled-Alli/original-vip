@@ -33,12 +33,6 @@ class LaptopDetailsScreen extends StatelessWidget {
         BlocProvider<QuantityCubit>(
           create: (context) => QuantityCubit(),
         ),
-        // BlocProvider<AuthCubit>(create: (context) => AuthCubit(getIt<WebServices>()),),
-        // BlocProvider<CartCubit>(create: (context) => CartCubit(getIt<WebServices>()),),
-        // BlocProvider<HomeCubit>(create: (context) => HomeCubit(getIt<WebServices>(),CartCubit.get(context))),
-        // BlocProvider<LaptopDetailsCubit>(create: (context) => LaptopDetailsCubit(getIt<WebServices>(),CartCubit.get(context)),),
-
-        // Provide CartCubit
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -66,7 +60,7 @@ class LaptopDetailsScreen extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: SingleChildScrollView(
               child: Container(
-                  height: 750.h,
+                  height: 751.h,
                   width: 360.w,
                   margin:
                       EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),

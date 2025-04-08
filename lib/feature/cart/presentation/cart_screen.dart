@@ -1,8 +1,11 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:original_vip/feature/authentication/view_model/auth_cubit.dart';
 import 'package:original_vip/feature/cart/model/cart_item_model.dart';
 import 'package:original_vip/feature/cart/presentation/widgets/cart_Item.dart';
 import 'package:original_vip/feature/cart/presentation/widgets/cart_items_section.dart';
@@ -11,7 +14,9 @@ import 'package:original_vip/feature/cart/presentation/widgets/empty_cart.dart';
 import 'package:original_vip/feature/cart/presentation/widgets/end_user_info_section.dart';
 import 'package:original_vip/feature/cart/presentation/widgets/notes_section.dart';
 import 'package:original_vip/feature/cart/view_model/cart_cubit.dart';
-
+import 'package:original_vip/feature/cart/view_model/order_cubit.dart';
+import '../../user_profile/view_model/payment_cubit.dart';
+import '../model/order_model.dart' as MyOrders;
 import '../../../core/helpers/colors/colors.dart';
 import '../../../core/helpers/constants/constants.dart';
 import '../../../core/helpers/extentions/extentions.dart';
@@ -63,17 +68,41 @@ class CartScreen extends StatelessWidget {
                           AppTextButton(
                             buttonText: AppConstants.makeOrder,
                             textStyle: TextStyles.font14whiteBold,
-                            onPressed: () {
+                            onPressed: () async{
                               HapticFeedback.lightImpact();
                               if (context.read<CartCubit>().formKey.currentState!.validate()) {
-                                // await context.read<AuthCubit>().login();
-                                //formKey.currentState!.save();
-                                print(context.read<CartCubit>().endUserNameController.text);
-                                print(context.read<CartCubit>().endUserPhoneController.text);
-                                print(context.read<CartCubit>().endUserAddressController.text);
-                                print(context.read<CartCubit>().endUserOrderNotesController.text);
+                               await context.read<OrderCubit>().createOrders(MyOrders.Order(
+                                generateUuid(),
+                                context.read<AuthCubit>().user!.id,
+                                   context.read<CartCubit>().totalCartItemEndUserPrice() - context.read<CartCubit>().totalCartItemDealerPrice(),
+                                   context.read<CartCubit>().endUserOrderNotesController.text,
+                                   context.read<CartCubit>().endUserNameController.text,
+                                   context.read<CartCubit>().endUserPhoneController.text,
+                                   context.read<CartCubit>().endUserAddressController.text,
+                                   context.read<CartCubit>().totalCartItemDealerPrice(),
+                                   context.read<CartCubit>().state,
+                                   AppConstants.orderStatus_Pending,
+                                   context.read<CartCubit>().totalCartItemEndUserPrice(),
+                                   DateTime.now().toFormattedString(),
+                               ))
+                                   .then(
+                                    (i) async {
+                                      Fluttertoast.showToast(
+                                        msg: AppConstants.orderCreatedSuccessfullyText,
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        backgroundColor: AppColors.whiteColor,
+                                        textColor: AppColors.mainColor,
+                                        fontSize: 16.0,
+                                      );
+                                         await context.read<CartCubit>().afterCreateOrder();
+                                         context.pushReplacementNamed(Routes.homeScreen);
+                                         await context.read<OrderCubit>().getOrders(context.read<AuthCubit>().user!.id);
+                                         await context.read<PaymentCubit>().getPayments(context.read<AuthCubit>().user!.id);
 
-                                print("context.read<CartCubit>().endUserNameController.text");
+
+                                    }
+                                );
                               }
                             },
                           ),

@@ -20,19 +20,22 @@ class AdditionalAdapter extends TypeAdapter<Additional> {
       fields[1] as String,
       fields[2] as String,
       fields[3] as int,
+      amount: fields[4] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Additional obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
       ..write(obj.name)
       ..writeByte(3)
-      ..write(obj.price);
+      ..write(obj.price)
+      ..writeByte(4)
+      ..write(obj.amount);
   }
 
   @override
@@ -54,6 +57,7 @@ Additional _$AdditionalFromJson(Map<String, dynamic> json) => Additional(
       json['id'] as String,
       json['name'] as String,
       (json['price'] as num).toInt(),
+      amount: (json['amount'] as num?)?.toInt() ?? 1,
     );
 
 Map<String, dynamic> _$AdditionalToJson(Additional instance) =>
@@ -61,4 +65,5 @@ Map<String, dynamic> _$AdditionalToJson(Additional instance) =>
       'id': instance.id,
       'name': instance.name,
       'price': instance.price,
+      'amount': instance.amount,
     };

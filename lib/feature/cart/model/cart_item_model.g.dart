@@ -21,8 +21,8 @@ class CartItemAdapter extends TypeAdapter<CartItem> {
       fields[2] as int,
       fields[3] as int,
       fields[4] as int,
-      fields[5] as Laptop,
-      (fields[6] as List).cast<Additional>(),
+      (fields[5] as List?)?.cast<Laptop>(),
+      (fields[6] as List?)?.cast<Additional>(),
     );
   }
 
@@ -64,9 +64,11 @@ CartItem _$CartItemFromJson(Map<String, dynamic> json) => CartItem(
       (json['amount'] as num).toInt(),
       (json['totalCartItemDealerPrice'] as num).toInt(),
       (json['totalCartItemEndUserPrice'] as num).toInt(),
-      Laptop.fromJson(json['laptop'] as Map<String, dynamic>),
-      (json['additionals'] as List<dynamic>)
-          .map((e) => Additional.fromJson(e as Map<String, dynamic>))
+      (json['laptop'] as List<dynamic>?)
+          ?.map((e) => Laptop.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      (json['additionals'] as List<dynamic>?)
+          ?.map((e) => Additional.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -75,6 +77,6 @@ Map<String, dynamic> _$CartItemToJson(CartItem instance) => <String, dynamic>{
       'amount': instance.amount,
       'totalCartItemDealerPrice': instance.totalCartItemDealerPrice,
       'totalCartItemEndUserPrice': instance.totalCartItemEndUserPrice,
-      'laptop': instance.laptop,
-      'additionals': instance.additionals,
+      //'laptop': instance.laptop?.map((laptop) => laptop.toJson()).toList() ?? [],
+      // 'additionals': instance.additionals?.map((additionals) => additionals.toJson()).toList() ?? [],
     };
