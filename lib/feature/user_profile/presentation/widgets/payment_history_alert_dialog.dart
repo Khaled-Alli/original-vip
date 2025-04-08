@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
-import 'package:original_vip/demo-data.dart';
 import 'package:original_vip/feature/user_profile/presentation/widgets/payment_history_item.dart';
 
 import '../../../../core/helpers/themes/themes.dart';

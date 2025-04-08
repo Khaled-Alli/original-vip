@@ -5,8 +5,6 @@ import 'package:original_vip/feature/laptop_details/view_model/additional_sectio
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/themes/themes.dart';
-import '../../../../demo-data.dart';
-import '../../../home/model/additional_model.dart';
 import '../../../home/view_model/additional_cubit.dart';
 import '../../../home/view_model/additional_state.dart';
 import '../../view_model/additional_section_state.dart';

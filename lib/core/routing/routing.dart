@@ -50,24 +50,3 @@ class AppRouter {
   }
 }
 
-
-// class AppRouterr {
-//   AppRouterr();
-//   static GoRouter router = GoRouter(
-//     initialLocation: context.read<AuthCubit>().user != null ? Routes.homeScreen : Routes.loginScreen,
-//     routes: [
-//       GoRoute(
-//       path:  Routes.loginScreen,
-//       builder: (context, state) =>  const LoginScreen(),
-//     ),
-//       GoRoute(
-//         path: Routes.homeScreen,
-//         builder: (context, state) => const HomeScreen(),
-//       ),
-//       GoRoute(
-//         path: Routes.laptopDetailsScreen,
-//         builder: (context, state) =>LaptopDetailsScreen(state.extra as Laptop)
-//       ),
-//     ],
-//   );
-// }

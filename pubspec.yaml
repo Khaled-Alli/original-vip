@@ -67,6 +67,7 @@ flutter:
     - assets/images/no-connection.png
     - assets/images/user.png
     - assets/images/empty-cart.png
+    - shorebird.yaml
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

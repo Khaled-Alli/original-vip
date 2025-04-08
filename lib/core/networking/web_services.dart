@@ -85,24 +85,6 @@ class WebServices {
     }
   }
 
-  // Future<Either<String, List<MyOrders.Order>>> getOrders(String dealerID) async {
-  //   try {
-  //     final snapshot = (await firebaseFirestore
-  //         .collection(ServicesConstants.ORDERS_TEXT)
-  //         .where(ServicesConstants.DEALER_ID_TEXT, isEqualTo: dealerID)
-  //         .get());
-  //     if (snapshot.docs.isNotEmpty) {
-  //       final orders = snapshot.docs.map((doc) =>  MyOrders.Order.fromJson(doc.data() as Map<String, dynamic>)).toList();
-  //       return Right(orders);
-  //     } else {
-  //       return const Left(AppConstants.noAvailableOrdersTXT);
-  //     }
-  //   } catch (error) {
-  //     print(error);
-  //     return Left(AppConstants.ensureInternetConnection.toString());
-  //   }
-  // }
-
   Future<Either<String, List<MyOrders.Order>>> getOrders(String dealerID) async {
     try {
       final snapshot = await firebaseFirestore.collection(ServicesConstants.ORDERS_TEXT)
@@ -221,21 +203,4 @@ class WebServices {
     }
   }
 
-
-
-
-
-//
-// Future<String> createUser(User user) async {
-//   await firebaseFirestore
-//       .collection(ServicesConstants.USERS_TEXT)
-//       .doc(user.phone)
-//       .set(user.toJson())
-//       .then((_) {
-//     return AppConstants.userCreatedSuccessfullyText;
-//   }).catchError((error) {
-//     return "$error : ${AppConstants.errorWhileUserCreationText} ";
-//   });
-//   return AppConstants.emptyText;
-// }
 }

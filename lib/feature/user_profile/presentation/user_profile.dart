@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/extentions/extentions.dart';
-import 'package:original_vip/demo-data.dart';
 import 'package:original_vip/feature/cart/view_model/order_cubit.dart';
 import 'package:original_vip/feature/user_profile/presentation/widgets/orders_section.dart';
 import 'package:original_vip/feature/user_profile/presentation/widgets/profile_section.dart';

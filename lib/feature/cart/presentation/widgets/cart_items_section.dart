@@ -8,7 +8,6 @@ import '../../../../core/di/sl.dart';
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
 import '../../../../core/networking/web_services.dart';
-import '../../../../demo-data.dart';
 import 'cart_Item.dart';
 
 class CartItemsSection extends StatelessWidget {

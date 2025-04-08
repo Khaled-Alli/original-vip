@@ -15,7 +15,6 @@ import '../../feature/user_profile/view_model/payment_cubit.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  //getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
 
   getIt.registerLazySingleton<WebServices>(() => WebServices(getIt<FirebaseFirestore>()));

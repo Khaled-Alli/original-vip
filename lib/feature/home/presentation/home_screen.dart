@@ -19,7 +19,6 @@ import 'package:original_vip/feature/home/view_model/laptop_cubit.dart';
 
 import '../../../core/helpers/extentions/extentions.dart';
 import '../../../core/helpers/themes/themes.dart';
-import '../../../demo-data.dart';
 import '../../cart/view_model/cart_cubit.dart';
 import '../../cart/view_model/cart_state.dart';
 import '../../cart/view_model/order_cubit.dart';
