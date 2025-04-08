@@ -1,5 +1,6 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:original_vip/core/helpers/extentions/extentions.dart';
 import 'package:original_vip/core/networking/web_services.dart';
 import 'package:original_vip/feature/user_profile/view_model/payment_state.dart';
 
@@ -17,8 +18,9 @@ class PaymentCubit extends Cubit<PaymentState> {
     result.fold((error) {
       emit(PaymentErrorState(error));
     }, (payment) async{
-      payments = payment;
-      emit(PaymentLoadedState(payment as List<Payment>));
+       payments = payment;
+      payments?.sort((a, b) => b.date.toDateTime().compareTo(a.date.toDateTime()));
+      emit(PaymentLoadedState(payments as List<Payment>));
     });
   }
 }
