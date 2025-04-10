@@ -26,4 +26,15 @@ class Additional {
       _$AdditionalFromJson(json);
 
   Map<String, dynamic> toJson() => _$AdditionalToJson(this);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+          other is Additional &&
+              runtimeType == other.runtimeType &&
+              id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
+
 }

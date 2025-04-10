@@ -17,6 +17,7 @@ import 'package:original_vip/feature/home/view_model/additional_cubit.dart';
 import 'package:original_vip/feature/home/view_model/additional_state.dart';
 import 'package:original_vip/feature/home/view_model/laptop_cubit.dart';
 
+import '../../../core/helpers/constants/constants.dart';
 import '../../../core/helpers/extentions/extentions.dart';
 import '../../../core/helpers/themes/themes.dart';
 import '../../cart/view_model/cart_cubit.dart';
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
         backgroundColor: AppColors.lightBackgroundColor,
-        title: const MyAppBar(),
+        title:  const MyAppBar(AppConstants.APP_NAME),
         actions: [
           Builder(
             builder: (context) =>

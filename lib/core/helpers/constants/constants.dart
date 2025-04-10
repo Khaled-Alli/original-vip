@@ -64,6 +64,7 @@ class AppConstants{
   static const addToCartText="إضافة للسلة";
 
   static const laptopInCartText="اللابتوب موجود فى السلة";
+  static const enterPriceForUserText="ادخل السعر للعميل";
   static const CartText="السلة";
   static const commissionText="العمولة : ";
   static const totalEndUserPriceText="إجمالي السعر للعميل : ";

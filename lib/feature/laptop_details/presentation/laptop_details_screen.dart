@@ -19,9 +19,9 @@ import '../../../core/routing/routing.dart';
 import '../view_model/quantity_cubit.dart';
 
 class LaptopDetailsScreen extends StatelessWidget {
-  Laptop laptop;
+ final Laptop laptop;
 
-  LaptopDetailsScreen(this.laptop, {super.key});
+  const LaptopDetailsScreen(this.laptop, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class LaptopDetailsScreen extends StatelessWidget {
             statusBarBrightness: Brightness.light,
           ),
           backgroundColor: AppColors.lightBackgroundColor,
-          title: const MyAppBar(),
+          title:  MyAppBar(laptop.name),
           toolbarHeight: 60.h,
           leading: GestureDetector(
             child: const Icon(
@@ -60,7 +60,8 @@ class LaptopDetailsScreen extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: SingleChildScrollView(
               child: Container(
-                  height: 751.h,
+                  //height: 751.h,
+                  padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom + 20.h,),
                   width: 360.w,
                   margin:
                       EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),

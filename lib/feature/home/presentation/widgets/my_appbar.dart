@@ -5,7 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/constants/constants.dart';
 
 class MyAppBar extends StatelessWidget {
-  const MyAppBar({super.key});
+  final String appBarTitle;
+  const MyAppBar(this.appBarTitle);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class MyAppBar extends StatelessWidget {
               width: 10.w,
             ),
             Text(
-              AppConstants.APP_NAME,
+              appBarTitle,
               style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
             ),
           ],

@@ -21,9 +21,7 @@ class LaptopDetailsAdditionalsSection extends StatelessWidget {
         width: 340.w,
         padding: EdgeInsets.all(10.w),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(
-            16,
-          ),
+          borderRadius: BorderRadius.circular(16,),
           border: Border.all(
             color: AppColors.darktGrayColor,
           ),
@@ -59,7 +57,7 @@ class LaptopDetailsAdditionalsSection extends StatelessWidget {
                       Text(
                         state.selectedAdditionals.isEmpty
                             ? AppConstants.noAdditionalsText
-                            : state.selectedAdditionals.map((i) => "${i.name} X ${state.tempAmounts[i.id] ?? 1}").join(", "),
+                            : state.selectedAdditionals.map((i) => "( ${i.name} X ${state.tempAmounts[i.id] ?? 1} )").join(", "),
                         style: TextStyles.font13whiteBold,
                         textDirection: TextDirection.ltr,
                         maxLines: 1,

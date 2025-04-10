@@ -22,7 +22,13 @@ class OrdersSection extends StatelessWidget {
       child: ExpansionTile(
         shape:  const Border(),
         collapsedShape: const Border(),
-        title: Text(title, style: TextStyles.font15mainColorBold),
+        title: Row(
+          children: [
+            Text(title, style: TextStyles.font15mainColorBold),
+            horizontalSpace(10),
+            Text(orders.length.toString(), style: TextStyles.font14whiteBold),
+          ],
+        ),
         children: [
           Container(
             padding: EdgeInsets.all(10.w),

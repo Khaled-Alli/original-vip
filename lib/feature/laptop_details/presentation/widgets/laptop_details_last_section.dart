@@ -83,6 +83,15 @@ class LaptopDetailsLastSection extends StatelessWidget {
                     fontSize: 16.0,
                   );
                 }
+              }else{
+                Fluttertoast.showToast(
+                  msg: AppConstants.enterPriceForUserText,
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  backgroundColor: AppColors.whiteColor,
+                  textColor: AppColors.mainColor,
+                  fontSize: 16.0,
+                );
               }
             },
           ),

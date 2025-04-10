@@ -50,12 +50,15 @@ class MyDrawer extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewPadding.bottom + 20.h,
+            ),
           //  height: 40.h,
             //padding: EdgeInsets.all(16.w),
             margin:  EdgeInsets.all(12.w),
             child:
-            Text( 'تواصل مع مطور التطبيق \n'
-                'واتساب 01021204207 ',
+            SelectableText( 'تواصل مع مطور التطبيق \n'
+                'واتساب 207 204 21 010',
                 style: TextStyles.font13whiteBold,
                 textAlign: TextAlign.center,
               ),
