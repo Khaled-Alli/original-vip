@@ -16,25 +16,39 @@ import '../../../authentication/presentation/widgets/app_Button.dart';
 import '../../../authentication/presentation/widgets/app_text_form_field.dart';
 import '../../../cart/view_model/cart_cubit.dart';
 
-class LaptopDetailsLastSection extends StatelessWidget {
-  Laptop laptop;
+class LaptopDetailsLastSection extends StatefulWidget {
+  final Laptop laptop;
 
-  LaptopDetailsLastSection(this.laptop, {super.key});
+  const LaptopDetailsLastSection(this.laptop, {super.key});
+
+  @override
+  State<LaptopDetailsLastSection> createState() => _LaptopDetailsLastSectionState();
+}
+
+class _LaptopDetailsLastSectionState extends State<LaptopDetailsLastSection> {
+  final TextEditingController userPriceController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    userPriceController.dispose();
+    super.dispose();
+  }
+
+  String? priceValidator(value) {
+    if (value == null || value.isEmpty) {
+      return AppConstants.enterEndUserPriceText;
+    } else if (!RegExp(r'^\d+$').hasMatch(value)) {
+      return AppConstants.enterNumbersOnlyText;
+    } else if (int.parse(value) <
+        context.read<QuantityCubit>().totalCartItemDealerPrice) {
+      return AppConstants.priceMustBeGreaterThanDealerText;
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController userPriceController = TextEditingController();
-    final formKey = GlobalKey<FormState>();
-    priceValidator(value) {
-      if (value == null || value.isEmpty) {
-        return AppConstants.enterEndUserPriceText;
-      } else if (!RegExp(r'^\d+$').hasMatch(value)) {
-        return AppConstants.enterNumbersOnlyText;
-      } else if (int.parse(value) <
-          context.read<QuantityCubit>().totalCartItemDealerPrice) {
-        return AppConstants.priceMustBeGreaterThanDealerText;
-      }
-    }
     return Row(
       children: [
         SizedBox(
@@ -46,7 +60,7 @@ class LaptopDetailsLastSection extends StatelessWidget {
               prefixIcon: const Icon(Icons.attach_money_rounded),
               hintText: AppConstants.priceForEndUserText,
               keyboardType: TextInputType.number,
-              validator: (value) => priceValidator(value),
+              validator: priceValidator,
             ),
           ),
         ),
@@ -63,17 +77,17 @@ class LaptopDetailsLastSection extends StatelessWidget {
             onPressed: () {
               HapticFeedback.lightImpact();
               if (formKey.currentState!.validate()) {
-                if(!context.read<CartCubit>().isLaptopInCart(laptop.id)){
-                context.read<CartCubit>().addToCart(CartItem(
-                      generateUuid(),
-                      context.read<QuantityCubit>().state,
-                      context.read<QuantityCubit>().totalCartItemDealerPrice,
-                      int.parse(userPriceController.text),
-                      [laptop],
-                      context.read<AdditionalSectionCubit>().state.selectedAdditionals,
-                    ));
-                context.pushNamedAndRemoveUntil(Routes.homeScreen);
-                 }else{
+                if (!context.read<CartCubit>().isLaptopInCart(widget.laptop.id)) {
+                  context.read<CartCubit>().addToCart(CartItem(
+                    generateUuid(),
+                    context.read<QuantityCubit>().state,
+                    context.read<QuantityCubit>().totalCartItemDealerPrice,
+                    int.parse(userPriceController.text),
+                    [widget.laptop],
+                    context.read<AdditionalSectionCubit>().state.selectedAdditionals,
+                  ));
+                  context.pushNamedAndRemoveUntil(Routes.homeScreen);
+                } else {
                   Fluttertoast.showToast(
                     msg: AppConstants.laptopInCartText,
                     toastLength: Toast.LENGTH_SHORT,
@@ -83,7 +97,7 @@ class LaptopDetailsLastSection extends StatelessWidget {
                     fontSize: 16.0,
                   );
                 }
-              }else{
+              } else {
                 Fluttertoast.showToast(
                   msg: AppConstants.enterPriceForUserText,
                   toastLength: Toast.LENGTH_SHORT,
