@@ -6,7 +6,7 @@ import 'laptop_state.dart';
 
 class LaptopCubit extends Cubit<LaptopState> {
   WebServices webServices;
-
+   List<Laptop> laptop =[];
 
   LaptopCubit(this.webServices) : super(LaptopInitialState());
 
@@ -16,7 +16,8 @@ class LaptopCubit extends Cubit<LaptopState> {
     result.fold((error) {
       emit(LaptopErrorState(error));
     }, (laptops) async{
-      emit(LaptopLoadedState(laptops as List<Laptop>));
+      laptop = laptops..sort((a, b) => a.price.compareTo(b.price));
+      emit(LaptopLoadedState(laptop));
     });
   }
 }
