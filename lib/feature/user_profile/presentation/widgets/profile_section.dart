@@ -40,31 +40,35 @@ class ProfileSection extends StatelessWidget {
             child: Icon(Icons.person, size: 40),
           ),
           verticalSpace(15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AmountInfo(
-                  AppConstants.availableBalanceTXT,
-                  context.read<OrderCubit>().getAvailableBalance(
-                      context.read<OrderCubit>().orders??[],
-                      context.read<PaymentCubit>().payments??[])),
-              AmountInfo(
-                  AppConstants.pendingBalanceTXT,
-                  context.read<OrderCubit>().getPendingBalance(
-                      context.read<OrderCubit>().orders??[],
-                      context.read<PaymentCubit>().payments??[])),
-              GestureDetector(
-                onTap: () {
-                  HapticFeedback.lightImpact();
-                  showDialog(
-                    context: context,
-                    builder: (dialogContext) => PaymentHistoryAlertDialog(
-                        context.read<PaymentCubit>().payments??[]),
-                  );
-                },
-                child: const PaymentHistory(),
-              ),
-            ],
+          BlocBuilder<PaymentCubit, PaymentState>(
+            builder: (context, state) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AmountInfo(
+                      AppConstants.availableBalanceTXT,
+                      context.read<OrderCubit>().getAvailableBalance(
+                          context.read<OrderCubit>().orders ?? [],
+                          context.read<PaymentCubit>().payments ?? [])),
+                  AmountInfo(
+                      AppConstants.pendingBalanceTXT,
+                      context.read<OrderCubit>().getPendingBalance(
+                          context.read<OrderCubit>().orders ?? [],
+                          context.read<PaymentCubit>().payments ?? [])),
+                  GestureDetector(
+                    onTap: () {
+                      HapticFeedback.lightImpact();
+                      showDialog(
+                        context: context,
+                        builder: (dialogContext) => PaymentHistoryAlertDialog(
+                            context.read<PaymentCubit>().payments ?? []),
+                      );
+                    },
+                    child: const PaymentHistory(),
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),
