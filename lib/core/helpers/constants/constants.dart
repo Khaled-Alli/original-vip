@@ -30,7 +30,7 @@ class AppConstants{
   static const enterValidPasswordText='أدخل باسورد لا يقل عن 8 أحرف أو أرقام';
   static const userNotFoundText='المستخدم غير موجود أو بيانات خاطئة';
   static const userCreatedSuccessfullyText="تم إنشاء المسوق بنجح";
-  static const orderCreatedSuccessfullyText="تم إنشاء الطلب بنجح";
+  static const orderCreatedSuccessfullyText="تم إنشاء الطلب بنجاح";
   static const errorWhileUserCreationText="خطأ فى إنشاء المسوق";
   static const checkInternetConnectionText="تأكد من إتصالك بالإنترنت";
   static const loginSuccessfullyText="تم تسجيل الدخول بنجاح";

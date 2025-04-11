@@ -96,7 +96,7 @@ class CartScreen extends StatelessWidget {
                                         fontSize: 16.0,
                                       );
                                          await context.read<CartCubit>().afterCreateOrder();
-                                         context.pushReplacementNamed(Routes.homeScreen);
+                                         context.pushNamedAndRemoveUntil(Routes.homeScreen);
                                          await context.read<OrderCubit>().getOrders(context.read<AuthCubit>().user!.id);
                                          await context.read<PaymentCubit>().getPayments(context.read<AuthCubit>().user!.id);
 
