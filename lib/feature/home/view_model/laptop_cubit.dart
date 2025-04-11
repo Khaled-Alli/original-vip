@@ -16,7 +16,8 @@ class LaptopCubit extends Cubit<LaptopState> {
     result.fold((error) {
       emit(LaptopErrorState(error));
     }, (laptops) async{
-      laptop = laptops..sort((a, b) => a.price.compareTo(b.price));
+      laptop = laptops;
+      laptop.sort((a, b) => a.price.compareTo(b.price));
       emit(LaptopLoadedState(laptop));
     });
   }
