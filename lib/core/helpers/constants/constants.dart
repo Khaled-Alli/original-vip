@@ -36,6 +36,9 @@ class AppConstants{
   static const loginSuccessfullyText="تم تسجيل الدخول بنجاح";
   static const enterNumbersOnlyText='أدخل أرقام فقط';
   static const priceMustBeGreaterThanDealerText='السعر أقل من سعر الديلر';
+  static const inAUDText="فى الإمارات";
+  static const inEgText="فى مصر";
+  static const allLaptopsText= "كل اللابتوبات";
 
   static const priceText="السعر";
   static const quantityText="الكمية فى المخزن";
