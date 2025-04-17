@@ -21,6 +21,9 @@ class AppConstants{
 
 
 
+  static const whatsappURLText='https://wa.me/+201021204207';
+  static const myWhatsappText='010 21 204 207';
+  static const contactDeveloperText='تواصل مع مطور التطبيق\n';
   static const emptyText='';
   static const loginText='دخول';
   static const enterPhoneText="أدخل رقم التليفون";
