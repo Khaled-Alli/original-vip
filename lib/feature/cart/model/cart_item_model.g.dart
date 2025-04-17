@@ -77,6 +77,6 @@ Map<String, dynamic> _$CartItemToJson(CartItem instance) => <String, dynamic>{
       'amount': instance.amount,
       'totalCartItemDealerPrice': instance.totalCartItemDealerPrice,
       'totalCartItemEndUserPrice': instance.totalCartItemEndUserPrice,
-      //'laptop': instance.laptop?.map((laptop) => laptop.toJson()).toList() ?? [],
-      // 'additionals': instance.additionals?.map((additionals) => additionals.toJson()).toList() ?? [],
+     // 'laptop': instance.laptop,
+     // 'additionals': instance.additionals,
     };

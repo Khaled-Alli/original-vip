@@ -31,7 +31,6 @@ List<Order>? orders;
     emit(OrderLoadingState());
     var result = await webServices.createOrder(order);
     result.fold((error) {
-      print(error);
       emit(OrderErrorState(error));
     }, (right) async{
       emit(OrderLoadedState(orders as List<Order>));

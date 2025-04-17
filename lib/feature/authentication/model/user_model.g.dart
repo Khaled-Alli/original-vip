@@ -19,18 +19,17 @@ class UserAdapter extends TypeAdapter<User> {
     return User(
       fields[1] as String,
       fields[2] as String,
-      fields[5] as int,
-      (fields[4] as List).cast<String>(),
       fields[3] as String,
+      fields[4] as String,
+      fields[5] as String,
       fields[6] as String,
-      fields[7] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(6)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
@@ -38,12 +37,10 @@ class UserAdapter extends TypeAdapter<User> {
       ..writeByte(3)
       ..write(obj.phone)
       ..writeByte(4)
-      ..write(obj.orderID)
+      ..write(obj.fcmToken)
       ..writeByte(5)
-      ..write(obj.commission)
-      ..writeByte(6)
       ..write(obj.role)
-      ..writeByte(7)
+      ..writeByte(6)
       ..write(obj.password);
   }
 
@@ -65,9 +62,8 @@ class UserAdapter extends TypeAdapter<User> {
 User _$UserFromJson(Map<String, dynamic> json) => User(
       json['id'] as String,
       json['name'] as String,
-      (json['commission'] as num).toInt(),
-      (json['orderID'] as List<dynamic>).map((e) => e as String).toList(),
       json['phone'] as String,
+      json['fcmToken'] as String,
       json['role'] as String,
       json['password'] as String,
     );
@@ -76,8 +72,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'phone': instance.phone,
-      'orderID': instance.orderID,
-      'commission': instance.commission,
+      'fcmToken': instance.fcmToken,
       'role': instance.role,
       'password': instance.password,
     };

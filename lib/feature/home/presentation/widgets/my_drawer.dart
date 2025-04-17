@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/helpers/extentions/extentions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/themes/themes.dart';
 import '../../../../core/networking/local_cervices.dart';
@@ -48,21 +52,49 @@ class MyDrawer extends StatelessWidget {
               context.pushReplacementNamed(Routes.loginScreen);
             },
           ),
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewPadding.bottom + 20.h,
-            ),
-          //  height: 40.h,
-            //padding: EdgeInsets.all(16.w),
-            margin:  EdgeInsets.all(12.w),
-            child:
-            SelectableText( 'تواصل مع مطور التطبيق \n'
-                'واتساب 207 204 21 010',
-                style: TextStyles.font13whiteBold,
-                textAlign: TextAlign.center,
+          GestureDetector(
+            onTap: () async {
+              HapticFeedback.lightImpact();
+              launchUrl(Uri.parse(AppConstants.whatsappURLText), mode: LaunchMode.externalApplication);
+            },
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewPadding.bottom + 20.h,
               ),
-
+              margin: EdgeInsets.all(12.w),
+              child: Center(
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: AppConstants.contactDeveloperText,
+                        style: TextStyles.font13whiteBold,
+                      ),
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.middle,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              AppConstants.myWhatsappText,
+                              style: TextStyles.font13whiteBold,
+                            ),
+                            SizedBox(width: 8.w),
+                            FaIcon(
+                              FontAwesomeIcons.whatsapp,
+                              color: Colors.green,
+                              size: 16.sp,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),

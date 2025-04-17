@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/core/di/sl.dart';
@@ -24,6 +25,7 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthErrorState(error));
     }, (userInfo) async{
        user = userInfo;
+       FirebaseMessaging.instance.subscribeToTopic(userInfo.role);
       await localServices.saveUser(userInfo);
       emit(AuthLoadedState(userInfo));
     });
@@ -45,12 +47,15 @@ class AuthCubit extends Cubit<AuthState> {
               print("${userInfo.id} ******* userInfo.id  ******" );
 
           user = userInfo;
+              FirebaseMessaging.instance.subscribeToTopic(userInfo.role);
           print("${user?.id} ****** user.id ******" );
           emit(AuthLoadedState(userInfo));
           return true;
         },
       );
   }
+
+
 
   phoneValidator(value) {
     if (value == null || value.isEmpty || value.toString().length < 11) {
