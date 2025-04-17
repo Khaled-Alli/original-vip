@@ -105,6 +105,6 @@ Map<String, dynamic> _$OrderToJson(Order instance) => <String, dynamic>{
       'totalEndUserPrice': instance.totalOrderEndUserPrice,
       'commission': instance.commission,
       'orderStatus': instance.orderStatus,
-     // 'cartItems': instance.cartItems?.map((cartItem) => cartItem.toJson()).toList() ?? [],
+    //  'cartItems': instance.cartItems,
       'date': instance.date,
     };

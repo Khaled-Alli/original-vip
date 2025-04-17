@@ -3,7 +3,7 @@ description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish 
-version: 1.0.0+2
+version: 1.0.3
 
 environment:
   sdk: ^3.6.1
@@ -33,6 +33,11 @@ dependencies:
   build_runner: ^2.4.15
   intl: ^0.20.2
   liquid_pull_to_refresh: ^3.0.1
+  http: ^1.3.0
+  firebase_messaging: ^15.2.5
+  googleapis: ^14.0.0
+  googleapis_auth: ^2.0.0
+  flutter_local_notifications: ^19.1.0
 
 flutter_launcher_icons:
   android: true
@@ -68,6 +73,7 @@ flutter:
     - assets/images/user.png
     - assets/images/empty-cart.png
     - shorebird.yaml
+    - assets/credentials/service_account.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

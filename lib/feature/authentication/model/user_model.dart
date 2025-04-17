@@ -14,20 +14,17 @@ class User {
   @HiveField(3)
   String phone;
   @HiveField(4)
-  List<String> orderID;
+  String fcmToken;
   @HiveField(5)
-  int commission;
-  @HiveField(6)
   String role;
-  @HiveField(7)
+  @HiveField(6)
   String password;
 
   User(
      this.id,
      this.name,
-     this.commission,
-     this.orderID,
      this.phone,
+      this.fcmToken,
      this.role,
      this.password,
   );

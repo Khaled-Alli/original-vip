@@ -6,6 +6,7 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
+import 'package:original_vip/core/networking/push_notification_service.dart';
 import 'package:original_vip/core/routing/routing.dart';
 import 'package:original_vip/feature/authentication/view_model/auth_cubit.dart';
 import 'package:original_vip/feature/cart/model/cart_item_model.dart';

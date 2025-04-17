@@ -164,20 +164,18 @@ class WebServices {
   Future<Either<String, String>> createOrder(MyOrders.Order order) async {
 
     try {
-      DocumentReference orderRef = firebaseFirestore
+    DocumentReference orderRef = firebaseFirestore
           .collection(ServicesConstants.ORDERS_TEXT)
           .doc(order.id);
-
-      print(order.toJson().toString());
-
       await orderRef.set(order.toJson());
-
 
       for (var cartItem in order.cartItems ?? []) {
         DocumentReference cartItemRef = orderRef
             .collection(ServicesConstants.CART_ITEMS_TEXT)
             .doc(cartItem.id);
-
+        print("❌");
+           print(cartItem.toJson().toString());
+        print("❌");
         await cartItemRef.set(cartItem.toJson());
 
         for (var additional in cartItem.additionals ?? []) {
@@ -194,7 +192,6 @@ class WebServices {
               .set(laptop.toJson());
         }
       }
-
       return const Right(AppConstants.orderCreatedSuccessfullyText);
     } catch (error, stackTrace) {
       print("❌ Error creating order: ${error.toString()}");

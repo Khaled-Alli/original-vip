@@ -15,6 +15,7 @@ import 'package:original_vip/feature/cart/presentation/widgets/end_user_info_sec
 import 'package:original_vip/feature/cart/presentation/widgets/notes_section.dart';
 import 'package:original_vip/feature/cart/view_model/cart_cubit.dart';
 import 'package:original_vip/feature/cart/view_model/order_cubit.dart';
+import '../../../core/networking/push_notification_service.dart';
 import '../../user_profile/view_model/payment_cubit.dart';
 import '../model/order_model.dart' as MyOrders;
 import '../../../core/helpers/colors/colors.dart';
@@ -70,39 +71,40 @@ class CartScreen extends StatelessWidget {
                             textStyle: TextStyles.font14whiteBold,
                             onPressed: () async{
                               HapticFeedback.lightImpact();
-                              if (context.read<CartCubit>().formKey.currentState!.validate()) {
-                               await context.read<OrderCubit>().createOrders(MyOrders.Order(
-                                generateUuid(),
-                                context.read<AuthCubit>().user!.id,
-                                   context.read<CartCubit>().totalCartItemEndUserPrice() - context.read<CartCubit>().totalCartItemDealerPrice(),
-                                   context.read<CartCubit>().endUserOrderNotesController.text,
-                                   context.read<CartCubit>().endUserNameController.text,
-                                   context.read<CartCubit>().endUserPhoneController.text,
-                                   context.read<CartCubit>().endUserAddressController.text,
-                                   context.read<CartCubit>().totalCartItemDealerPrice(),
-                                   context.read<CartCubit>().state,
-                                   AppConstants.orderStatus_Pending,
-                                   context.read<CartCubit>().totalCartItemEndUserPrice(),
-                                   DateTime.now().toFormattedString(),
-                               ))
-                                   .then(
-                                    (i) async {
-                                      Fluttertoast.showToast(
-                                        msg: AppConstants.orderCreatedSuccessfullyText,
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        backgroundColor: AppColors.whiteColor,
-                                        textColor: AppColors.mainColor,
-                                        fontSize: 16.0,
-                                      );
-                                         await context.read<CartCubit>().afterCreateOrder();
-                                         context.pushNamedAndRemoveUntil(Routes.homeScreen);
-                                         await context.read<OrderCubit>().getOrders(context.read<AuthCubit>().user!.id);
-                                         await context.read<PaymentCubit>().getPayments(context.read<AuthCubit>().user!.id);
+                              final cartCubit = context.read<CartCubit>();
+                              final orderCubit = context.read<OrderCubit>();
+                              final authCubit = context.read<AuthCubit>();
+                              final paymentCubit = context.read<PaymentCubit>();
 
-
-                                    }
+                              if (cartCubit.formKey.currentState!.validate()) {
+                                final order = MyOrders.Order(
+                                  generateUuid(),
+                                  authCubit.user!.id,
+                                  cartCubit.totalCartItemEndUserPrice() - cartCubit.totalCartItemDealerPrice(),
+                                  cartCubit.endUserOrderNotesController.text,
+                                  cartCubit.endUserNameController.text,
+                                  cartCubit.endUserPhoneController.text,
+                                  cartCubit.endUserAddressController.text,
+                                  cartCubit.totalCartItemDealerPrice(),
+                                  cartCubit.state,
+                                  AppConstants.orderStatus_Pending,
+                                  cartCubit.totalCartItemEndUserPrice(),
+                                  DateTime.now().toFormattedString(),
                                 );
+                                await orderCubit.createOrders(order);
+                                Fluttertoast.showToast(
+                                  msg: AppConstants.orderCreatedSuccessfullyText,
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  backgroundColor: AppColors.whiteColor,
+                                  textColor: AppColors.mainColor,
+                                  fontSize: 16.0,
+                                );
+                                await PushNotificationService.sendNotificationToAdmins();
+                                await cartCubit.afterCreateOrder();
+                                context.pushNamedAndRemoveUntil(Routes.homeScreen);
+                                await orderCubit.getOrders(authCubit.user!.id);
+                                await paymentCubit.getPayments(authCubit.user!.id);
                               }
                             },
                           ),
