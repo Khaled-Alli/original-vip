@@ -7,32 +7,41 @@ import '../../../../core/helpers/themes/themes.dart';
 import '../../model/payment.dart';
 
 class PaymentHistoryAlertDialog extends StatelessWidget {
- final List<Payment> payments;
-  const PaymentHistoryAlertDialog(this.payments);
+  final List<Payment> payments;
+  const PaymentHistoryAlertDialog(this.payments, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: AlertDialog(
-        title: const Text(AppConstants.paymentHistoryTXT),
         scrollable: true,
+        title: Text(
+          AppConstants.paymentHistoryTXT,
+          style: TextStyles.font13whiteBold,
+        ),
         content: SizedBox(
-          height: 250.h,
-          child: SingleChildScrollView(
-            child: Column(
-              children: List.generate(payments.length, (index) =>
-                  PaymentHistoryItem(payments[index],),)
-            ),
+          width: 250.w,
+          height: 300.h,
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemCount: payments.length,
+            itemBuilder: (context, index) => PaymentHistoryItem(payments[index]),
+            separatorBuilder: (_, __) => Divider(color: Colors.grey.shade700),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppConstants.closeTXT,style: TextStyles.font13mainColorBold,),
+            child: Text(
+              AppConstants.closeTXT,
+              style: TextStyles.font13mainColorBold,
+              textDirection: TextDirection.rtl,
+            ),
           ),
         ],
       ),
     );
   }
 }
+

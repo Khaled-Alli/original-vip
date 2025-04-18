@@ -47,7 +47,7 @@ class LaptopDetailsScreen extends StatelessWidget {
           leading: GestureDetector(
             child: const Icon(
               Icons.arrow_back_outlined,
-              color: AppColors.mainColor,
+              color: AppColors.whiteColor,
             ),
             onTap: () {
               HapticFeedback.lightImpact();
