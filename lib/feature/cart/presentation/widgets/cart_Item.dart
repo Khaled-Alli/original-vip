@@ -11,6 +11,7 @@ import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
 import '../../../../core/helpers/themes/themes.dart';
 import '../../../../core/networking/web_services.dart';
+import '../../../authentication/view_model/auth_cubit.dart';
 import '../../model/cart_item_model.dart';
 
 class CartItemBuilder extends StatelessWidget {
@@ -66,7 +67,7 @@ class CartItemBuilder extends StatelessWidget {
                           children: [
                             Text(cartItem.laptop![0].processor,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
                             verticalSpace(4),
-                            Text("${cartItem.laptop![0].price} L.E",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
+                            Text("${context.read<AuthCubit>().user!.role == "trader"? cartItem.laptop![0].traderPrice :cartItem.laptop![0].dealerPrice} L.E",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,),
                             Text("X",style: TextStyles.font10mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
                             Text("${cartItem.amount}",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
                           ],

@@ -8,6 +8,7 @@ import 'package:original_vip/feature/laptop_details/view_model/quantity_cubit.da
 
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/themes/themes.dart';
+import '../../../authentication/view_model/auth_cubit.dart';
 import '../../../home/model/laptop_model.dart';
 
 class LaptopDetailsTotalPriceSection extends StatelessWidget {
@@ -40,7 +41,7 @@ class LaptopDetailsTotalPriceSection extends StatelessWidget {
           BlocBuilder<QuantityCubit,int>(builder: (context,state)=>
 
               Text(
-            context.read<QuantityCubit>().totalPriceForDealer(laptopPrice: laptop.price,cartItemSelectedAdditionals: context.read<AdditionalSectionCubit>().state.selectedAdditionals).toString(),
+            context.read<QuantityCubit>().totalPriceForDealer(laptopPrice:context.read<AuthCubit>().user!.role == "trader"? laptop.traderPrice: laptop.dealerPrice,cartItemSelectedAdditionals: context.read<AdditionalSectionCubit>().state.selectedAdditionals).toString(),
             style: TextStyles.font13whiteBold,
           ),
 

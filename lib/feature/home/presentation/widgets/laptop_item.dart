@@ -1,10 +1,12 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
 import 'package:original_vip/core/helpers/constants/constants.dart';
 import 'package:original_vip/core/helpers/themes/themes.dart';
 
+import '../../../authentication/view_model/auth_cubit.dart';
 import '../../model/laptop_model.dart';
 
 class LaptopItem extends StatelessWidget {
@@ -60,7 +62,7 @@ class LaptopItem extends StatelessWidget {
                   SizedBox(
                       width: 50.w,
                       child: Text(laptop.hard,style: TextStyles.font13whiteBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
-                  SizedBox( width: 62.w,child: Text("${laptop.price} L.E",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                  SizedBox( width: 62.w,child: Text("${context.read<AuthCubit>().user!.role == "trader"? laptop.traderPrice :laptop.dealerPrice} L.E",style: TextStyles.font13mainColorBold,maxLines: 1,overflow: TextOverflow.ellipsis,)),
                 ],),
               ),
             ],),

@@ -31,7 +31,8 @@ class LoginScreen extends StatelessWidget {
             textColor: Colors.white,
             fontSize: 16.0,
           );
-        } else if (state is AuthLoadedState) {
+        }
+        else if (state is AuthLoadedState) {
           Fluttertoast.showToast(
             msg: AppConstants.loginSuccessfullyText,
             toastLength: Toast.LENGTH_SHORT,

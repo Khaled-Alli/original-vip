@@ -374,12 +374,14 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/feature/cart/model/order_model.dart';
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
 import '../../../../core/helpers/themes/themes.dart';
+import '../../../authentication/view_model/auth_cubit.dart';
 import 'end_user_address.dart';
 import 'end_user_phone.dart';
 
@@ -492,7 +494,7 @@ class OrderItem extends StatelessWidget {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis),
                                     verticalSpace(4),
-                                    Text("${order.cartItems![index].laptop![0].price} L.E",
+                                    Text("${context.read<AuthCubit>().user!.role == "trader"? order.cartItems![index].laptop![0].traderPrice:order.cartItems![index].laptop![0].dealerPrice} L.E",
                                         style: TextStyles.font13mainColorBold,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis),

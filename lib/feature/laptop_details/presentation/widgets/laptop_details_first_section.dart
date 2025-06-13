@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
+import '../../../authentication/view_model/auth_cubit.dart';
 import '../../../home/model/laptop_model.dart';
 import 'laptop_details_one_col.dart';
 
@@ -63,7 +65,7 @@ class LaptopDetailsFirstSection extends StatelessWidget {
           verticalSpace(10),
           LaptopDetailsOneCol(
             static: AppConstants.priceText,
-            detail: laptop.price.toString(),
+            detail:context.read<AuthCubit>().user!.role == "trader"?  laptop.traderPrice.toString() :laptop.dealerPrice.toString(),
           ),
         ],
       ),

@@ -34,6 +34,7 @@ class LaptopAdapter extends TypeAdapter<Laptop> {
       fields[16] as bool,
       fields[10] as String,
       fields[17] as int,
+      fields[18] as int,
     );
   }
 
@@ -74,7 +75,9 @@ class LaptopAdapter extends TypeAdapter<Laptop> {
       ..writeByte(16)
       ..write(obj.visibility)
       ..writeByte(17)
-      ..write(obj.price);
+      ..write(obj.dealerPrice)
+    ..writeByte(17)
+      ..write(obj.traderPrice);
   }
 
   @override
@@ -109,7 +112,8 @@ Laptop _$LaptopFromJson(Map<String, dynamic> json) => Laptop(
       json['camera'] as bool,
       json['visibility'] as bool,
       json['notes'] as String,
-      (json['price'] as num).toInt(),
+      (json['dealerPrice'] as num).toInt(),
+      (json['traderPrice'] as num).toInt(),
     );
 
 Map<String, dynamic> _$LaptopToJson(Laptop instance) => <String, dynamic>{
@@ -129,5 +133,6 @@ Map<String, dynamic> _$LaptopToJson(Laptop instance) => <String, dynamic>{
       'keyboardBackLight': instance.keyboardBackLight,
       'acceptAdditionalHard': instance.acceptAdditionalHard,
       'visibility': instance.visibility,
-      'price': instance.price,
+      'dealerPrice': instance.dealerPrice,
+      'traderPrice': instance.traderPrice,
     };
