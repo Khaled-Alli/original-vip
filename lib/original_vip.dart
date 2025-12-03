@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/feature/home/view_model/laptop_cubit.dart';
-import 'package:original_vip/feature/home/view_model/laptop_cubit.dart';
 
 import 'core/di/sl.dart';
-import 'core/helpers/colors/colors.dart';
 import 'core/helpers/constants/constants.dart';
-import 'core/networking/local_cervices.dart';
-import 'core/networking/web_services.dart';
 import 'core/routing/routing.dart';
 import 'feature/authentication/view_model/auth_cubit.dart';
 import 'feature/cart/view_model/cart_cubit.dart';

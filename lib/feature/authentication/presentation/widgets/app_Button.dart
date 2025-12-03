@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/core/helpers/colors/colors.dart';
 
-
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
   final Color? backgroundColor;
@@ -35,22 +34,21 @@ class AppTextButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
           ),
         ),
-        backgroundColor:  WidgetStateProperty.all(AppColors.mainColor.withOpacity(.8)),
+        backgroundColor: WidgetStateProperty.all(
+          AppColors.mainColor.withValues(alpha: .8),
+        ),
         // padding: WidgetStateProperty.all<EdgeInsets>(
-          //   EdgeInsets.symmetric(
-          //     horizontal: horizontalPadding?.w ?? 12.w,
-          //     vertical: verticalPadding?.h ?? 14.h,
-          //   ),
-          // ),
-          fixedSize: WidgetStateProperty.all(
+        //   EdgeInsets.symmetric(
+        //     horizontal: horizontalPadding?.w ?? 12.w,
+        //     vertical: verticalPadding?.h ?? 14.h,
+        //   ),
+        // ),
+        fixedSize: WidgetStateProperty.all(
           Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 43.h),
         ),
       ),
       onPressed: onPressed,
-      child: Text(
-        buttonText,
-        style: textStyle,
-      ),
+      child: Text(buttonText, style: textStyle),
     );
   }
 }

@@ -6,7 +6,7 @@ import '../../../../core/helpers/themes/themes.dart';
 
 class PaymentHistoryItem extends StatelessWidget {
 Payment payment;
-  PaymentHistoryItem(this.payment);
+  PaymentHistoryItem(this.payment, {super.key});
 
   @override
   Widget build(BuildContext context) {

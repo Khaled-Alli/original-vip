@@ -1,0 +1,70 @@
+Analyzing original_vip...                                       
+
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:7:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:13:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:19:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:25:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:30:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:37:5 - avoid_print
+   info - The constant name 'APP_NAME' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:2:16 - constant_identifier_names
+   info - The constant name 'orderStatus_Pending' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:18:16 - constant_identifier_names
+   info - The constant name 'orderStatus_InProgress' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:19:16 - constant_identifier_names
+   info - The constant name 'orderStatus_Delivered' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:20:16 - constant_identifier_names
+   info - The constant name 'CartText' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:74:16 - constant_identifier_names
+   info - The constant name 'paymentHistory_separated_TXT' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:94:16 - constant_identifier_names
+   info - The constant name 'commission_TXT' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:105:16 - constant_identifier_names
+   info - The constant name 'USERS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:2:16 - constant_identifier_names
+   info - The constant name 'USER_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:3:16 - constant_identifier_names
+   info - The constant name 'LAPTOPS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:5:16 - constant_identifier_names
+   info - The constant name 'LAPTOP_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:6:16 - constant_identifier_names
+   info - The constant name 'ADDITIONALS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:7:16 - constant_identifier_names
+   info - The constant name 'CART_ITEMS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:8:16 - constant_identifier_names
+   info - The constant name 'PAYMENTS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:10:16 - constant_identifier_names
+   info - The constant name 'ORDERS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:11:16 - constant_identifier_names
+   info - The constant name 'DEALER_ID_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:12:16 - constant_identifier_names
+   info - The constant name 'VISIBILITY_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:16:16 - constant_identifier_names
+   info - The constant name 'PHONE_FIELD_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:18:16 - constant_identifier_names
+   info - The constant name 'PASSWORD_FIELD_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:19:16 - constant_identifier_names
+   info - The prefix 'MyOrders' isn't a lower_case_with_underscores identifier - lib\core\networking\web_services.dart:10:55 - library_prefixes
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:31:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:49:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:66:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:159:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:176:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:177:12 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:178:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:197:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:198:7 - avoid_print
+   info - The constant name 'CartScreen' isn't a lowerCamelCase identifier - lib\core\routing\routing.dart:16:16 - constant_identifier_names
+   info - The file name 'app_Button.dart' isn't a lower_case_with_underscores identifier - lib\feature\authentication\presentation\widgets\app_Button.dart:1:1 - file_names
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\feature\authentication\presentation\widgets\app_Button.dart:38:71 - deprecated_member_use
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: AppTextFormField.textFormController, AppTextFormField.prefixIcon, AppTextFormField.hintText, AppTextFormField.keyboardType, AppTextFormField.validator, AppTextFormField.filledColor - lib\feature\authentication\presentation\widgets\app_text_form_field.dart:5:7 - must_be_immutable
+   info - Don't invoke 'print' in production code - lib\feature\authentication\view_model\auth_cubit.dart:46:15 - avoid_print
+   info - Don't invoke 'print' in production code - lib\feature\authentication\view_model\auth_cubit.dart:50:11 - avoid_print
+   info - The prefix 'MyOrders' isn't a lower_case_with_underscores identifier - lib\feature\cart\presentation\cart_screen.dart:17:39 - library_prefixes
+   info - Don't use 'BuildContext's across async gaps - lib\feature\cart\presentation\cart_screen.dart:101:33 - use_build_context_synchronously
+   info - The file name 'cart_Item.dart' isn't a lower_case_with_underscores identifier - lib\feature\cart\presentation\widgets\cart_Item.dart:1:1 - file_names
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: CartItemBuilder.cartItem - lib\feature\cart\presentation\widgets\cart_Item.dart:14:7 - must_be_immutable
+   info - Don't invoke 'print' in production code - lib\feature\cart\view_model\cart_cubit.dart:93:7 - avoid_print
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:74:19 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:75:19 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:75:60 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:76:19 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:76:56 - use_build_context_synchronously
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: DrawerItem.text, DrawerItem.onTap - lib\feature\home\presentation\widgets\drawer_item.dart:3:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopItem.laptop - lib\feature\home\presentation\widgets\laptop_item.dart:12:7 - must_be_immutable
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\widgets\my_drawer.dart:50:15 - use_build_context_synchronously
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: MyTab.text - lib\feature\home\presentation\widgets\my_tab.dart:5:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsCheckbox.txt, LaptopDetailsCheckbox.value, LaptopDetailsCheckbox.onChange - lib\feature\laptop_details\presentation\widgets\laptop_details_checkbox.dart:7:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsCheckboxSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_checkbox_section.dart:9:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsFirstSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_first_section.dart:12:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsNotesSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_notes_section.dart:10:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsOneCol.static, LaptopDetailsOneCol.detail - lib\feature\laptop_details\presentation\widgets\laptop_details_one_col.dart:6:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsTotalPriceSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_total_price_section.dart:14:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: AmountInfo.title, AmountInfo.amount - lib\feature\user_profile\presentation\widgets\amount_info.dart:5:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: EndUserAddress.title, EndUserAddress.value - lib\feature\user_profile\presentation\widgets\end_user_address.dart:7:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: EndUserPhone.title, EndUserPhone.value - lib\feature\user_profile\presentation\widgets\end_user_phone.dart:7:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: OrdersSection.title, OrdersSection.orders - lib\feature\user_profile\presentation\widgets\orders_section.dart:10:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: PaymentHistoryItem.payment - lib\feature\user_profile\presentation\widgets\payment_history_item.dart:7:7 - must_be_immutable
+
+66 issues found. (ran in 5.7s)

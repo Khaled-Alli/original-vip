@@ -42,7 +42,7 @@ class AppRouter {
         );
         case Routes.userProfile:
         return MaterialPageRoute(
-          builder: (_) =>  UserProfile(),
+          builder: (_) =>  const UserProfile(),
         );
       default:
         return null;

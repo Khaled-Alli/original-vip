@@ -1,6 +1,5 @@
 
 import '../model/additional_model.dart';
-import '../model/laptop_model.dart';
 
 abstract class AdditionalState  {
 }

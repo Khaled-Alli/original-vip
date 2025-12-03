@@ -23,12 +23,12 @@ class WebServices {
           .get());
       if (snapshot.docs.isNotEmpty) {
         final userData = snapshot.docs.first.data();
-        return Right(User.fromJson(userData as Map<String, dynamic>));
+        return Right(User.fromJson(userData));
       } else {
         return const Left(AppConstants.userNotFoundText);
       }
     } catch (error) {
-      print(error.toString()+"******************************");
+      print("$error******************************");
       return Left(AppConstants.ensureInternetConnection.toString());
     }
   }
@@ -40,7 +40,7 @@ class WebServices {
           .where(ServicesConstants.VISIBILITY_TEXT, isEqualTo: true)
           .get());
       if (snapshot.docs.isNotEmpty) {
-        List<Laptop> laptops = snapshot.docs.map((doc) => Laptop.fromJson(doc.data() as Map<String, dynamic>)).toList();
+        List<Laptop> laptops = snapshot.docs.map((doc) => Laptop.fromJson(doc.data())).toList();
         return Right(laptops );
       } else {
         return const Left(AppConstants.noAvailableLaptopsTXT);
@@ -57,7 +57,7 @@ class WebServices {
           .collection(ServicesConstants.ADDITIONALS_TEXT)
           .get());
       if (snapshot.docs.isNotEmpty) {
-        final additionals = snapshot.docs.map((doc) => Additional.fromJson(doc.data() as Map<String, dynamic>)).toList();
+        final additionals = snapshot.docs.map((doc) => Additional.fromJson(doc.data())).toList();
         return Right(additionals);
       } else {
         return const Left(AppConstants.noAvailableAdditionalsTXT);
@@ -75,7 +75,7 @@ class WebServices {
           .where(ServicesConstants.DEALER_ID_TEXT, isEqualTo: dealerID)
           .get());
       if (snapshot.docs.isNotEmpty) {
-        final payments = snapshot.docs.map((doc) => Payment.fromJson(doc.data() as Map<String, dynamic>)).toList();
+        final payments = snapshot.docs.map((doc) => Payment.fromJson(doc.data())).toList();
         return Right(payments);
       } else {
         return const Left(AppConstants.noAvailablePaymentsTXT);
@@ -98,7 +98,7 @@ class WebServices {
       List<MyOrders.Order> orders = [];
 
       for (var doc in snapshot.docs) {
-        Map<String, dynamic> orderData = doc.data() as Map<String, dynamic>;
+        Map<String, dynamic> orderData = doc.data();
         List<CartItem> cartItems = [];
 
         final cartSnapshot = await firebaseFirestore

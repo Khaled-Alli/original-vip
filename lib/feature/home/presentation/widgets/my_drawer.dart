@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/helpers/extentions/extentions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/themes/themes.dart';
 import '../../../../core/networking/local_cervices.dart';

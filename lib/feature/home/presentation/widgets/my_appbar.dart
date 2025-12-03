@@ -6,7 +6,7 @@ import '../../../../core/helpers/constants/constants.dart';
 
 class MyAppBar extends StatelessWidget {
   final String appBarTitle;
-  const MyAppBar(this.appBarTitle);
+  const MyAppBar(this.appBarTitle, {super.key});
 
   @override
   Widget build(BuildContext context) {

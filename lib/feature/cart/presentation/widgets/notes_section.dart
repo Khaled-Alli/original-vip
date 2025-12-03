@@ -4,10 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
-import '../../../../core/helpers/extentions/extentions.dart';
-import '../../../../core/helpers/themes/themes.dart';
 import '../../view_model/cart_cubit.dart';
-import 'custom_text_form_field.dart';
 
 class NotesSection extends StatelessWidget {
 
@@ -16,7 +13,6 @@ class NotesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       width: 340.w,
       height: 100.h,
       padding: EdgeInsets.all(10.w),

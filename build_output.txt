@@ -1,0 +1,21 @@
+Running Gradle task 'assembleDebug'...                          
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'D:\Flutter-Projects\original_vip\android\app\build.gradle' line: 4
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'com.android.application']
+> Failed to apply plugin 'com.android.internal.version-check'.
+   > Minimum supported Gradle version is 8.11.1. Current version is 8.4. If using the gradle wrapper, try editing the distributionUrl in D:\Flutter-Projects\original_vip\android\gradle\wrapper\gradle-wrapper.properties to gradle-8.11.1-all.zip
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1s
+Running Gradle task 'assembleDebug'...                           1,781ms
+Gradle task assembleDebug failed with exit code 1

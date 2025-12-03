@@ -1,7 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:original_vip/core/di/sl.dart';
 import 'package:original_vip/core/networking/web_constants.dart';
 import 'package:original_vip/core/networking/web_services.dart';
 import 'package:original_vip/feature/authentication/view_model/auth_state.dart';

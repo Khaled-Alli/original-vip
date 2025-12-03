@@ -1,0 +1,124 @@
+Analyzing original_vip...                                       
+
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\bloc_observer.dart:1:8 - depend_on_referenced_packages
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:7:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:13:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:19:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:25:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:30:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc_observer.dart:37:5 - avoid_print
+   info - The constant name 'APP_NAME' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:2:16 - constant_identifier_names
+   info - The constant name 'orderStatus_Pending' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:18:16 - constant_identifier_names
+   info - The constant name 'orderStatus_InProgress' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:19:16 - constant_identifier_names
+   info - The constant name 'orderStatus_Delivered' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:20:16 - constant_identifier_names
+   info - The constant name 'CartText' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:74:16 - constant_identifier_names
+   info - The constant name 'paymentHistory_separated_TXT' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:94:16 - constant_identifier_names
+   info - The constant name 'commission_TXT' isn't a lowerCamelCase identifier - lib\core\helpers\constants\constants.dart:105:16 - constant_identifier_names
+warning - Unused import: 'package:original_vip/core/helpers/constants/constants.dart' - lib\core\networking\local_cervices.dart:3:8 - unused_import
+   info - The constant name 'USERS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:2:16 - constant_identifier_names
+   info - The constant name 'USER_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:3:16 - constant_identifier_names
+   info - The constant name 'LAPTOPS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:5:16 - constant_identifier_names
+   info - The constant name 'LAPTOP_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:6:16 - constant_identifier_names
+   info - The constant name 'ADDITIONALS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:7:16 - constant_identifier_names
+   info - The constant name 'CART_ITEMS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:8:16 - constant_identifier_names
+   info - The constant name 'PAYMENTS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:10:16 - constant_identifier_names
+   info - The constant name 'ORDERS_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:11:16 - constant_identifier_names
+   info - The constant name 'DEALER_ID_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:12:16 - constant_identifier_names
+   info - The constant name 'VISIBILITY_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:16:16 - constant_identifier_names
+   info - The constant name 'PHONE_FIELD_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:18:16 - constant_identifier_names
+   info - The constant name 'PASSWORD_FIELD_TEXT' isn't a lowerCamelCase identifier - lib\core\networking\web_constants.dart:19:16 - constant_identifier_names
+   info - The prefix 'MyOrders' isn't a lower_case_with_underscores identifier - lib\core\networking\web_services.dart:10:55 - library_prefixes
+warning - Unnecessary cast - lib\core\networking\web_services.dart:26:36 - unnecessary_cast
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:31:7 - avoid_print
+   info - Use interpolation to compose strings and values - lib\core\networking\web_services.dart:31:13 - prefer_interpolation_to_compose_strings
+warning - Unnecessary cast - lib\core\networking\web_services.dart:43:75 - unnecessary_cast
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:49:7 - avoid_print
+warning - Unnecessary cast - lib\core\networking\web_services.dart:60:76 - unnecessary_cast
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:66:7 - avoid_print
+warning - Unnecessary cast - lib\core\networking\web_services.dart:78:70 - unnecessary_cast
+warning - Unnecessary cast - lib\core\networking\web_services.dart:101:42 - unnecessary_cast
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:159:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:176:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:177:12 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:178:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:197:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\networking\web_services.dart:198:7 - avoid_print
+   info - The constant name 'CartScreen' isn't a lowerCamelCase identifier - lib\core\routing\routing.dart:16:16 - constant_identifier_names
+warning - Unused import: 'package:original_vip/core/di/sl.dart' - lib\feature\authentication\presentation\login_screen.dart:6:8 - unused_import
+warning - Unused import: 'package:original_vip/core/networking/local_cervices.dart' - lib\feature\authentication\presentation\login_screen.dart:9:8 - unused_import
+   info - The file name 'app_Button.dart' isn't a lower_case_with_underscores identifier - lib\feature\authentication\presentation\widgets\app_Button.dart:1:1 - file_names
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\feature\authentication\presentation\widgets\app_Button.dart:38:71 - deprecated_member_use
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: AppTextFormField.textFormController, AppTextFormField.prefixIcon, AppTextFormField.hintText, AppTextFormField.keyboardType, AppTextFormField.validator, AppTextFormField.filledColor - lib\feature\authentication\presentation\widgets\app_text_form_field.dart:5:7 - must_be_immutable
+warning - Unused import: 'package:original_vip/core/di/sl.dart' - lib\feature\authentication\view_model\auth_cubit.dart:4:8 - unused_import
+   info - Don't invoke 'print' in production code - lib\feature\authentication\view_model\auth_cubit.dart:47:15 - avoid_print
+   info - Don't invoke 'print' in production code - lib\feature\authentication\view_model\auth_cubit.dart:51:11 - avoid_print
+warning - Unused import: 'package:dartz/dartz.dart' - lib\feature\cart\presentation\cart_screen.dart:1:8 - unused_import
+   info - The import of 'package:flutter/cupertino.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\feature\cart\presentation\cart_screen.dart:2:8 - unnecessary_import
+warning - Unused import: 'package:original_vip/feature/cart/presentation/widgets/cart_Item.dart' - lib\feature\cart\presentation\cart_screen.dart:10:8 - unused_import
+   info - The prefix 'MyOrders' isn't a lower_case_with_underscores identifier - lib\feature\cart\presentation\cart_screen.dart:20:39 - library_prefixes
+warning - Unused import: '../../home/presentation/widgets/my_appbar.dart' - lib\feature\cart\presentation\cart_screen.dart:27:8 - unused_import
+   info - Don't use 'BuildContext's across async gaps - lib\feature\cart\presentation\cart_screen.dart:105:33 - use_build_context_synchronously
+   info - The file name 'cart_Item.dart' isn't a lower_case_with_underscores identifier - lib\feature\cart\presentation\widgets\cart_Item.dart:1:1 - file_names
+   info - The import of 'package:flutter/cupertino.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\feature\cart\presentation\widgets\cart_Item.dart:1:8 - unnecessary_import
+warning - Unused import: '../../../../core/di/sl.dart' - lib\feature\cart\presentation\widgets\cart_Item.dart:8:8 - unused_import
+warning - Unused import: '../../../../core/networking/web_services.dart' - lib\feature\cart\presentation\widgets\cart_Item.dart:13:8 - unused_import
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: CartItemBuilder.cartItem - lib\feature\cart\presentation\widgets\cart_Item.dart:17:7 - must_be_immutable
+warning - Unused import: '../../../../core/di/sl.dart' - lib\feature\cart\presentation\widgets\cart_items_section.dart:7:8 - unused_import
+warning - Unused import: '../../../../core/networking/web_services.dart' - lib\feature\cart\presentation\widgets\cart_items_section.dart:10:8 - unused_import
+warning - Unused import: '../../../../core/helpers/extentions/extentions.dart' - lib\feature\cart\presentation\widgets\notes_section.dart:7:8 - unused_import
+warning - Unused import: '../../../../core/helpers/themes/themes.dart' - lib\feature\cart\presentation\widgets\notes_section.dart:8:8 - unused_import
+warning - Unused import: 'custom_text_form_field.dart' - lib\feature\cart\presentation\widgets\notes_section.dart:10:8 - unused_import
+warning - Unused import: 'package:original_vip/feature/home/view_model/laptop_cubit.dart' - lib\feature\cart\view_model\cart_cubit.dart:6:8 - unused_import
+warning - Unused import: '../../../core/helpers/extentions/extentions.dart' - lib\feature\cart\view_model\cart_cubit.dart:8:8 - unused_import
+warning - Unused import: '../../home/model/additional_model.dart' - lib\feature\cart\view_model\cart_cubit.dart:9:8 - unused_import
+warning - Unused import: '../../home/model/laptop_model.dart' - lib\feature\cart\view_model\cart_cubit.dart:10:8 - unused_import
+warning - Unused import: 'cart_state.dart' - lib\feature\cart\view_model\cart_cubit.dart:11:8 - unused_import
+   info - Don't invoke 'print' in production code - lib\feature\cart\view_model\cart_cubit.dart:98:7 - avoid_print
+warning - Unused import: 'package:original_vip/core/helpers/colors/colors.dart' - lib\feature\cart\view_model\order_cubit.dart:3:8 - unused_import
+warning - Duplicate import - lib\feature\home\presentation\home_screen.dart:6:8 - duplicate_import
+warning - Unused import: 'package:original_vip/core/di/sl.dart' - lib\feature\home\presentation\home_screen.dart:7:8 - unused_import
+warning - Unused import: 'package:original_vip/core/networking/push_notification_service.dart' - lib\feature\home\presentation\home_screen.dart:9:8 - unused_import
+warning - Unused import: 'package:original_vip/feature/home/view_model/additional_state.dart' - lib\feature\home\presentation\home_screen.dart:18:8 - unused_import
+warning - Unused import: '../../cart/view_model/cart_state.dart' - lib\feature\home\presentation\home_screen.dart:26:8 - unused_import
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:79:19 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:80:19 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:80:60 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:81:19 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\home_screen.dart:81:56 - use_build_context_synchronously
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: DrawerItem.text, DrawerItem.onTap - lib\feature\home\presentation\widgets\drawer_item.dart:3:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopItem.laptop - lib\feature\home\presentation\widgets\laptop_item.dart:12:7 - must_be_immutable
+   info - Constructors for public widgets should have a named 'key' parameter - lib\feature\home\presentation\widgets\my_appbar.dart:9:9 - use_key_in_widget_constructors
+warning - Unused import: 'package:fluttertoast/fluttertoast.dart' - lib\feature\home\presentation\widgets\my_drawer.dart:4:8 - unused_import
+warning - Unused import: '../../../../core/helpers/colors/colors.dart' - lib\feature\home\presentation\widgets\my_drawer.dart:10:8 - unused_import
+   info - Don't use 'BuildContext's across async gaps - lib\feature\home\presentation\widgets\my_drawer.dart:52:15 - use_build_context_synchronously
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: MyTab.text - lib\feature\home\presentation\widgets\my_tab.dart:5:7 - must_be_immutable
+warning - Unnecessary cast - lib\feature\home\view_model\additional_cubit.dart:19:34 - unnecessary_cast
+warning - Unused import: '../model/laptop_model.dart' - lib\feature\home\view_model\additional_state.dart:3:8 - unused_import
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsCheckbox.txt, LaptopDetailsCheckbox.value, LaptopDetailsCheckbox.onChange - lib\feature\laptop_details\presentation\widgets\laptop_details_checkbox.dart:7:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsCheckboxSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_checkbox_section.dart:9:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsFirstSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_first_section.dart:12:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsNotesSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_notes_section.dart:10:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsOneCol.static, LaptopDetailsOneCol.detail - lib\feature\laptop_details\presentation\widgets\laptop_details_one_col.dart:6:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: LaptopDetailsTotalPriceSection.laptop - lib\feature\laptop_details\presentation\widgets\laptop_details_total_price_section.dart:14:7 - must_be_immutable
+warning - Unnecessary cast - lib\feature\laptop_details\view_model\additional_cubit.dart:19:34 - unnecessary_cast
+warning - Unused import: '../../cart/model/order_model.dart' - lib\feature\user_profile\presentation\user_profile.dart:12:8 - unused_import
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\feature\user_profile\presentation\user_profile.dart:16:3 - prefer_const_constructors_in_immutables
+   info - Parameter 'key' could be a super parameter - lib\feature\user_profile\presentation\user_profile.dart:16:3 - use_super_parameters
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: AmountInfo.title, AmountInfo.amount - lib\feature\user_profile\presentation\widgets\amount_info.dart:5:7 - must_be_immutable
+   info - Constructors for public widgets should have a named 'key' parameter - lib\feature\user_profile\presentation\widgets\amount_info.dart:8:4 - use_key_in_widget_constructors
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: EndUserAddress.title, EndUserAddress.value - lib\feature\user_profile\presentation\widgets\end_user_address.dart:7:7 - must_be_immutable
+   info - Constructors for public widgets should have a named 'key' parameter - lib\feature\user_profile\presentation\widgets\end_user_address.dart:10:3 - use_key_in_widget_constructors
+   info - The value of the argument is redundant because it matches the default value - lib\feature\user_profile\presentation\widgets\end_user_address.dart:15:27 - avoid_redundant_argument_values
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: EndUserPhone.title, EndUserPhone.value - lib\feature\user_profile\presentation\widgets\end_user_phone.dart:7:7 - must_be_immutable
+   info - Constructors for public widgets should have a named 'key' parameter - lib\feature\user_profile\presentation\widgets\end_user_phone.dart:10:4 - use_key_in_widget_constructors
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: OrdersSection.title, OrdersSection.orders - lib\feature\user_profile\presentation\widgets\orders_section.dart:10:7 - must_be_immutable
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: PaymentHistoryItem.payment - lib\feature\user_profile\presentation\widgets\payment_history_item.dart:7:7 - must_be_immutable
+   info - Constructors for public widgets should have a named 'key' parameter - lib\feature\user_profile\presentation\widgets\payment_history_item.dart:9:3 - use_key_in_widget_constructors
+warning - Unused import: '../../../../core/helpers/themes/themes.dart' - lib\feature\user_profile\presentation\widgets\profile_section.dart:14:8 - unused_import
+warning - Unused import: '../../../cart/view_model/order_state.dart' - lib\feature\user_profile\presentation\widgets\profile_section.dart:15:8 - unused_import
+warning - Duplicate import - lib\original_vip.dart:6:8 - duplicate_import
+warning - Unused import: 'core/helpers/colors/colors.dart' - lib\original_vip.dart:9:8 - unused_import
+warning - Unused import: 'core/networking/local_cervices.dart' - lib\original_vip.dart:11:8 - unused_import
+warning - Unused import: 'core/networking/web_services.dart' - lib\original_vip.dart:12:8 - unused_import
+
+120 issues found. (ran in 5.8s)

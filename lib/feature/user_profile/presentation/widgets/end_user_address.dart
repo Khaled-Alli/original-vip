@@ -7,12 +7,11 @@ import '../../../../core/helpers/themes/themes.dart';
 class EndUserAddress extends StatelessWidget {
   String title;
   String value;
-  EndUserAddress(this.title,this.value);
+  EndUserAddress(this.title,this.value, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(title, style: TextStyles.font13whiteBold, textAlign: TextAlign.center),
         SizedBox(height: 5.h),

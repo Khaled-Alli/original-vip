@@ -9,11 +9,10 @@ import 'package:original_vip/feature/user_profile/presentation/widgets/profile_s
 import '../../../core/helpers/colors/colors.dart';
 import '../../../core/helpers/constants/constants.dart';
 import '../../../core/helpers/themes/themes.dart';
-import '../../cart/model/order_model.dart';
 import '../../cart/view_model/order_state.dart';
 
 class UserProfile extends StatelessWidget {
-  UserProfile({Key? key}) : super(key: key);
+  const UserProfile({super.key});
 
   @override
   Widget build(BuildContext context) {

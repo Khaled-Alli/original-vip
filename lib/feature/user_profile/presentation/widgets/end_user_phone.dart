@@ -7,7 +7,7 @@ import '../../../../core/helpers/themes/themes.dart';
 class EndUserPhone extends StatelessWidget {
   String title;
   String value;
-   EndUserPhone(this.title,this.value);
+   EndUserPhone(this.title,this.value, {super.key});
 
   @override
   Widget build(BuildContext context) {

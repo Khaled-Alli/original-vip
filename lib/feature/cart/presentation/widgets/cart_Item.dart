@@ -1,16 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:original_vip/feature/cart/view_model/cart_cubit.dart';
 
-import '../../../../core/di/sl.dart';
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
 import '../../../../core/helpers/themes/themes.dart';
-import '../../../../core/networking/web_services.dart';
 import '../../../authentication/view_model/auth_cubit.dart';
 import '../../model/cart_item_model.dart';
 

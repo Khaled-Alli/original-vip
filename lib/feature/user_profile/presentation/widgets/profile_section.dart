@@ -11,8 +11,6 @@ import 'package:original_vip/feature/user_profile/view_model/payment_cubit.dart'
 import '../../../../core/helpers/colors/colors.dart';
 import '../../../../core/helpers/constants/constants.dart';
 import '../../../../core/helpers/extentions/extentions.dart';
-import '../../../../core/helpers/themes/themes.dart';
-import '../../../cart/view_model/order_state.dart';
 import '../../view_model/payment_state.dart';
 
 class ProfileSection extends StatelessWidget {

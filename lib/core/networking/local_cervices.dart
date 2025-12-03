@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:original_vip/core/helpers/constants/constants.dart';
 import 'package:original_vip/core/networking/web_constants.dart';
 import 'package:original_vip/feature/cart/model/cart_item_model.dart';
 

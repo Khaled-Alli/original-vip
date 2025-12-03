@@ -5,7 +5,7 @@ import '../../../../core/helpers/themes/themes.dart';
 class AmountInfo extends StatelessWidget {
   String title;
   int amount;
-   AmountInfo(this.title,this.amount);
+   AmountInfo(this.title,this.amount, {super.key});
 
   @override
   Widget build(BuildContext context) {

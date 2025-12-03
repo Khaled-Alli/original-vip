@@ -3,12 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:original_vip/core/networking/local_cervices.dart';
 import 'package:original_vip/core/networking/web_services.dart';
 import 'package:original_vip/feature/cart/model/cart_item_model.dart';
-import 'package:original_vip/feature/home/view_model/laptop_cubit.dart';
 import '../../../core/helpers/constants/constants.dart';
-import '../../../core/helpers/extentions/extentions.dart';
-import '../../home/model/additional_model.dart';
-import '../../home/model/laptop_model.dart';
-import 'cart_state.dart';
 
 class CartCubit extends Cubit<List<CartItem>> {
   WebServices webServices;

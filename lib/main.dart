@@ -66,7 +66,7 @@ void main() async {
             channelDescription: 'This channel is used for default notifications',
             importance: Importance.max,
             priority: Priority.high,
-            icon: '@mipmap/launcher_icon',
+            icon: '@mipmap/ic_launcher',
           ),
         ),
       );
